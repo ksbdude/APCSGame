@@ -5,6 +5,8 @@ import javax.imageio.ImageIO;
 
 public class Structure {
 
+    public static Structure dungeon = new Structure("", 64);
+
     private int[] floorplan;
     private int width, height;
     private String path;
@@ -18,13 +20,12 @@ public class Structure {
         floorplan = new int[SIZE * SIZE];
         load();
     }
-    
-    public int[] getfloorplan()
-    {
+
+    public int[] getfloorplan() {
         return floorplan;
     }
-    public int getSize()
-    {
+
+    public int getSize() {
         return SIZE;
     }
 
