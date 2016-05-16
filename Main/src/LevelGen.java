@@ -35,15 +35,82 @@ public class LevelGen
         }
     }
     
+    //make an override method that placed a structure at a specific location too.
     public void placestructure(Structure a)
     {
+        //CONVERT IMAGE TO PROPER FORMAT-----------------------------------------------------------
+        
+        //copies the pixel array and size from the floorplan (an image from the structure class)
         int size = a.getSize();
         int[] floorplan = a.getfloorplan();
+        //converts to a 2d array for better placement on the map
+        int[][] build = singleto2D(floorplan, size);
+        build = hexToInt(build);
         
-        int[][] building = singleto2D(floorplan, size); //copies the pixel array from the floorplan (an image from the structure class) to a 2d array for better placement on the map
-        building = hexToInt(building);
+        //FIND AND CONFIRM LOCATION TO PLACE STRUCTURE---------------------------------------------
         
-        //HAS NOT PLACED STRUCTURE ONTO MAP YET
+        //Needs code that can determine if a structure was already placed at the location
+        
+        int upperleftcornerX = 1;
+        int upperleftcornerY = 1;
+        
+        //check if structure goes outside of the level map. If yes, find another location at random.
+        do
+        {
+            upperleftcornerX = (int)(Math.random()*width)+1;
+            upperleftcornerY = (int)(Math.random()*height)+1;
+        } while (upperleftcornerX + size >= width && upperleftcornerY + size >= height);
+        
+        //PLACE STRUCTURE ON THE MAP.--------------------------------------------------------------
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                level[upperleftcornerX + i][upperleftcornerY + j] = build[i][j];
+            }
+        }
+    }
+    
+    public void placestructure(Structure a, int upperleftX, int upperleftY)
+    {
+        //CONVERT IMAGE TO PROPER FORMAT-----------------------------------------------------------
+        
+        //copies the pixel array and size from the floorplan (an image from the structure class)
+        int size = a.getSize();
+        int[] floorplan = a.getfloorplan();
+        //converts to a 2d array for better placement on the map and replaces hex codes with tile ID#
+        int[][] build = singleto2D(floorplan, size);
+        build = hexToInt(build);
+        
+        //CONFIRM LOCATION TO PLACE STRUCTURE------------------------------------------------------
+                
+        int upperleftcornerX = upperleftX;
+        int upperleftcornerY = upperleftY;
+        
+        //PLACE STRUCTURE ON THE MAP.--------------------------------------------------------------
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                level[upperleftcornerX + i][upperleftcornerY + j] = build[i][j];
+            }
+        }
+    }
+    
+    public int[][] singleto2D(int[] a, int b)
+    {
+        //converts single line array to 2d array.
+        int size = b;
+        int[][] building = new int[size][size];
+        
+        for (int s = 0; s < size; s+=size)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                building[i][s] = a[s*size + i];
+            }
+        }
+        return building;
     }
     
     public int[][] hexToInt(int[][] a)
@@ -60,22 +127,6 @@ public class LevelGen
                 else if (building[r][c] == 0xff22B14C)      //green
                     building[r][c] = floor1;
                 //list other hex codes and conversion here:
-            }
-        }
-        return building;
-    }
-    
-    public int[][] singleto2D(int[] a, int b)
-    {
-        //converts single line array to 2d array.
-        int size = b;
-        int[][] building = new int[size][size];
-        
-        for (int s = 0; s < size*size; s+=size)
-        {
-            for (int i = 0; i < size; i++)
-            {
-                building[i][s] = a[s*size + i];
             }
         }
         return building;
