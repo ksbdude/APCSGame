@@ -1,5 +1,6 @@
-package APCOMPSCI;
+package Game;
 
+import Game.Tile;
 import java.util.Random;
 
 public class Screen {
