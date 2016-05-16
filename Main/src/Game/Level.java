@@ -6,7 +6,7 @@ import javax.swing.text.html.parser.Entity;
 
 public class Level {
 
-    public static Level spawn = new Level("/textures/levels/SpawnWorld.png");
+    public static Level spawn = new Level(64, 64);
 
     protected int width, height;
     protected int[] tileInt;
@@ -144,6 +144,9 @@ public class Level {
     // Wall = 000000
     // Flower = FFFF00
     public Tile getTile(int x, int y) {
+        if(x == 0 || y == 0){
+            return Tile.rock;
+        }
         return Tile.grass;
 //        
 //        if (x < 0 || y < 0 || x >= width || y >= height) {

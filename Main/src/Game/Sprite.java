@@ -1,7 +1,5 @@
 package Game;
 
-import Game.SpriteSheet;
-
 public class Sprite {
 
     public final int SIZE;
@@ -10,7 +8,7 @@ public class Sprite {
     private SpriteSheet sheet;
 
     public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);
-//    public static Sprite wood = new Sprite(16, 0, 1, SpriteSheet.tiles);
+    public static Sprite rock = new Sprite(16, 0, 0, SpriteSheet.rock);
 //    public static Sprite wall = new Sprite(16, 1, 1, SpriteSheet.tiles);
 //    public static Sprite wallTop = new Sprite(16, 2, 1, SpriteSheet.tiles);
 //    public static Sprite sand = new Sprite(16, 3, 1, SpriteSheet.tiles);
