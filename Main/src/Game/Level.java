@@ -144,7 +144,9 @@ public class Level {
     // Wall = 000000
     // Flower = FFFF00
     public Tile getTile(int x, int y) {
-        if(x == 0 || y == 0){
+        if (x < 0 || y < 0) {
+            return Tile.grass;
+        } else if (x == 0 || y == 0) {
             return Tile.rock;
         }
         return Tile.grass;
