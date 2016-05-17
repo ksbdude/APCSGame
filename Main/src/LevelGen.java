@@ -2,9 +2,10 @@ public class LevelGen
 {
     private int[][] level;
     private int width, height;
-    private int numOfDifferentFloorTiles;
+    private int[] FloorTiles = {1, 2};
+    private int numOfDifferentFloorTiles = FloorTiles.length;
     
-    private int wall = 0, floor1 = 1;
+    private int wall = 0, floor1 = 1, floor2 = 2;
     
     public LevelGen(int w, int h)
     {
@@ -29,7 +30,7 @@ public class LevelGen
                 }
                 else
                 {
-                    level[x][y] = (int)(Math.random()*numOfDifferentFloorTiles)+1;
+                    level[x][y] = FloorTiles[(int)(Math.random()*numOfDifferentFloorTiles)+1];
                 }
             }
         }
@@ -48,7 +49,7 @@ public class LevelGen
         
         //FIND AND CONFIRM LOCATION TO PLACE STRUCTURE---------------------------------------------
         
-        //Needs code that can determine if a structure was already placed at the location
+        //ERROR: Needs code that can determine if a structure was already placed at the location
         
         int upperleftcornerX = 1;
         int upperleftcornerY = 1;
