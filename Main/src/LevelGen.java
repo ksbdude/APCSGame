@@ -35,7 +35,6 @@ public class LevelGen
         }
     }
     
-    //make an override method that placed a structure at a specific location too.
     public void placestructure(Structure a)
     {
         //CONVERT IMAGE TO PROPER FORMAT-----------------------------------------------------------
