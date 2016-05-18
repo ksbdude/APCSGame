@@ -18,23 +18,28 @@ public class LevelGen
         height = h;
     }
     
+    public int[][] getLevel()
+    {
+        return level;
+    }
+    
     public void randomgen()
     {
         for(int x = 0; x < width; x++)
         {
             for(int y = 0; y < height; y++)
             {
-                if(x == 0 || x == width)
+                if(x == 0 || x == width-1)
                 {
                     level[x][y] = 0;
                 }
-                if(y == 0 || y == height)
+                else if(y == 0 || y == height-1)
                 {
                     level[x][y] = 0;
                 }
                 else
                 {
-                    level[x][y] = FloorTiles[(int)(Math.random()*(FloorTiles.length-1))+1];
+                    level[x][y] = FloorTiles[(int)(Math.random()*(FloorTiles.length))];
                 }
             }
         }
