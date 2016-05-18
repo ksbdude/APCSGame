@@ -69,8 +69,8 @@ public class LevelGen
         {
             tempX.clear();
             tempY.clear();
-            upperleftcornerX = (int)(Math.random()*width)+1;
-            upperleftcornerY = (int)(Math.random()*height)+1;
+            upperleftcornerX = (int)(Math.random()*width);
+            upperleftcornerY = (int)(Math.random()*height);
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -147,7 +147,7 @@ public class LevelGen
                 if (building[r][c] == 0xFFFFFFFF)           //black
                     building[r][c] = wall;
                 else if (building[r][c] == 0xff22B14C)      //green
-                    building[r][c] = floor1;
+                    building[r][c] = FloorTiles[(int)(Math.random()*(FloorTiles.length))];  //any green will be the same as the floor of the map.
                 //list other hex codes and conversion here:
             }
         }
