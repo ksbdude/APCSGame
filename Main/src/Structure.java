@@ -10,7 +10,7 @@ public class Structure {
     private int[] floorplan;
     private int width, height;
     private String path;
-    private final int SIZE;
+    private int SIZE;
 
     public int[] pixels;
 
