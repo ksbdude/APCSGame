@@ -1,9 +1,13 @@
+
+import java.util.ArrayList;
+
 public class LevelGen
 {
     private int[][] level;
     private int width, height;
     private int[] FloorTiles = {1, 2};
-    private int numOfDifferentFloorTiles = FloorTiles.length;
+    private ArrayList<Integer> addedstructureX = new ArrayList<Integer>();
+    private ArrayList<Integer> addedstructureY = new ArrayList<Integer>();
     
     private int wall = 0, floor1 = 1, floor2 = 2;
     
@@ -30,7 +34,7 @@ public class LevelGen
                 }
                 else
                 {
-                    level[x][y] = FloorTiles[(int)(Math.random()*numOfDifferentFloorTiles)+1];
+                    level[x][y] = FloorTiles[(int)(Math.random()*(FloorTiles.length-1))+1];
                 }
             }
         }
@@ -48,18 +52,29 @@ public class LevelGen
         build = hexToInt(build);
         
         //FIND AND CONFIRM LOCATION TO PLACE STRUCTURE---------------------------------------------
-        
-        //ERROR: Needs code that can determine if a structure was already placed at the location
-        
+                
         int upperleftcornerX = 1;
         int upperleftcornerY = 1;
         
-        //check if structure goes outside of the level map. If yes, find another location at random.
+        //check if structure goes outside of the level map or if structure is going to be placed in another structure. If yes, find another location at random.
+        ArrayList<Integer> tempX = new ArrayList<Integer>();
+        ArrayList<Integer> tempY = new ArrayList<Integer>();
+        
         do
         {
+            tempX.clear();
+            tempY.clear();
             upperleftcornerX = (int)(Math.random()*width)+1;
             upperleftcornerY = (int)(Math.random()*height)+1;
-        } while (upperleftcornerX + size >= width && upperleftcornerY + size >= height);
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    tempX.add(upperleftcornerX + i);
+                    tempY.add(upperleftcornerY + j);
+                }
+            }
+        } while ((upperleftcornerX+size) >= width || (upperleftcornerY+size) >= height || !validstructurelocation(addedstructureX, addedstructureY, tempX, tempY, size));
         
         //PLACE STRUCTURE ON THE MAP.--------------------------------------------------------------
         for (int i = 0; i < size; i++)
@@ -67,6 +82,8 @@ public class LevelGen
             for (int j = 0; j < size; j++)
             {
                 level[upperleftcornerX + i][upperleftcornerY + j] = build[i][j];
+                addedstructureX.add(upperleftcornerX + i);
+                addedstructureY.add(upperleftcornerY + j);
             }
         }
     }
@@ -132,6 +149,17 @@ public class LevelGen
         return building;
     }
     
-    
+    public boolean validstructurelocation(ArrayList<Integer> aX, ArrayList<Integer> aY, ArrayList<Integer> bX, ArrayList<Integer> bY, int s)
+    {
+        for (int i = 0; i < s; i++)
+        {
+            for (int j = 0; j < s; j++)
+            {
+                if ( aX.contains(bX.get(i)) && aY.contains(bY.get(j)) )
+                    return false;
+            }
+        }
+        return true;
+    }
     
 }
