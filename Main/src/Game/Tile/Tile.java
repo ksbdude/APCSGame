@@ -11,6 +11,7 @@ public class Tile {
     public static Tile grass = new GrassTile(Sprite.grass);
     public static Tile rock = new RockTile(Sprite.rock);
     public static Tile sand = new GrassTile(Sprite.sand);
+    public static Tile sand4 = new GrassTile(Sprite.sand4);
     
     public static Tile voidTile = new VoidTile(16, 0xFF0000ff);
 //     public static Tile wallTop = new GrassTile(Sprite.wallTop);

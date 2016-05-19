@@ -158,6 +158,8 @@ public class Level {
             return Tile.sand;
         } else if (tileInt[x + y * width] == 2) {
             return Tile.rock;
+        } else if (tileInt[x + y * width] == 3) {
+            return Tile.sand4;
         }
         return Tile.grass;
 //        

@@ -13,9 +13,8 @@ public class Screen {
 
     public int xOffset = Game.width / 2, yOffset = Game.height / 2;
 
-	// public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
-    private Random random = new Random();
-
+    // public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
+    
     public Screen(int width, int height) {
         this.width = width;
         this.height = height;
