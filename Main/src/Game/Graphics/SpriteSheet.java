@@ -1,4 +1,4 @@
-package Game;
+package Game.Graphics;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -13,6 +13,13 @@ public class SpriteSheet {
 
     public static SpriteSheet tiles = new SpriteSheet("/textures/Grass1.png", 16);
     public static SpriteSheet rock = new SpriteSheet("/textures/Rock.png", 16);
+    public static SpriteSheet sand = new SpriteSheet("/textures/SandFloor1.png", 16);
+    public static SpriteSheet player = new SpriteSheet("/textures/mario.png", 32);
+    
+    public static SpriteSheet sprites = new SpriteSheet("/textures/spritesheet.png", 256);
+    
+   // public static SpriteSheet sprites = new SpriteSheet("/textures/spritesheet.png", 32);
+    
 
     public SpriteSheet(String path, int size) {
         this.path = path;

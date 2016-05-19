@@ -1,7 +1,7 @@
-package Game;
+package Game.Entity;
 
-
-import Game.Sprite;
+import Game.Game;
+import Game.Graphics.Sprite;
 
 public class Mob extends Entity {
 	protected Sprite sprite;

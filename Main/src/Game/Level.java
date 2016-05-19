@@ -1,12 +1,14 @@
 package Game;
 
+import Game.Graphics.Screen;
+import Game.Tile.Tile;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.text.html.parser.Entity;
 
 public class Level {
 
-    public static Level spawn = new Level(64, 64);
+    public static Level spawn = new RandomLevel(64, 64);
 
     protected int width, height;
     protected int[] tileInt;
@@ -145,8 +147,16 @@ public class Level {
     // Flower = FFFF00
     public Tile getTile(int x, int y) {
         if (x < 0 || y < 0) {
+            return Tile.voidTile;
+        }
+        if (x < 0 || y < 0) {
             return Tile.grass;
         } else if (x == 0 || y == 0) {
+            return Tile.rock;
+        }
+        if (tileInt[x + y * width] == 1 || tileInt[x + y * width] == 3) {
+            return Tile.sand;
+        } else if (tileInt[x + y * width] == 2) {
             return Tile.rock;
         }
         return Tile.grass;

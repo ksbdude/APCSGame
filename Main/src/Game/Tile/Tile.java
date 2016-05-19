@@ -1,4 +1,7 @@
-package Game;
+package Game.Tile;
+
+import Game.Graphics.Sprite;
+import Game.Graphics.Screen;
 
 public class Tile {
 
@@ -6,7 +9,10 @@ public class Tile {
     public Sprite sprite;
 
     public static Tile grass = new GrassTile(Sprite.grass);
-    public static Tile rock = new GrassTile(Sprite.rock);
+    public static Tile rock = new RockTile(Sprite.rock);
+    public static Tile sand = new GrassTile(Sprite.sand);
+    
+    public static Tile voidTile = new VoidTile(16, 0xFF0000ff);
 //     public static Tile wallTop = new GrassTile(Sprite.wallTop);
 //     public static Tile rock = new GrassTile(Sprite.rock);
 //     public static Tile voidTile = new VoidTile(Sprite.voidSprite);

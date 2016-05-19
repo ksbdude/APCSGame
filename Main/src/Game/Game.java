@@ -1,6 +1,7 @@
 package Game;
 
-import Input.Keyboard;
+import Game.Entity.Player;
+import Game.Graphics.Screen;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.*;

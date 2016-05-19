@@ -1,6 +1,7 @@
-package Game;
+package Game.Graphics;
 
-import Game.Tile;
+import Game.Game;
+import Game.Tile.Tile;
 import java.util.Random;
 
 public class Screen {

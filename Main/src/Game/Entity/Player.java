@@ -1,6 +1,9 @@
-package Game;
+package Game.Entity;
 
-import Input.Keyboard;
+
+import Game.Graphics.Screen;
+import Game.Graphics.Sprite;
+import Game.Keyboard;
 
 public class Player extends Mob {
 
@@ -11,7 +14,7 @@ public class Player extends Mob {
 
     public Player(Keyboard input) {
         this.input = input;
-//        sprite = Sprite.grass;
+        sprite = Sprite.player;
         dir = Direction.DOWN;
     }
 
@@ -109,6 +112,6 @@ public class Player extends Mob {
          }
          */
 
-        //screen.renderMob(x + screen.width / 2 - 16, y + screen.height / 2 - 16, sprite);
+        screen.renderMob(x + screen.width / 2 - 16, y + screen.height / 2 - 16, sprite);
     }
 }
