@@ -1,3 +1,5 @@
+package Game;
+
 
 import java.util.ArrayList;
 
@@ -69,8 +71,8 @@ public class LevelGen
         {
             tempX.clear();
             tempY.clear();
-            upperleftcornerX = (int)(Math.random()*width);
-            upperleftcornerY = (int)(Math.random()*height);
+            upperleftcornerX = (int)(Math.random()*width)+1;
+            upperleftcornerY = (int)(Math.random()*height)+1;
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -125,11 +127,11 @@ public class LevelGen
         int size = b;
         int[][] building = new int[size][size];
         
-        for (int s = 0; s < size; s+=size)
+        for (int r = 0; r < size; r++)
         {
             for (int i = 0; i < size; i++)
             {
-                building[i][s] = a[s*size + i];
+                building[r][i] = a[r*size + i];
             }
         }
         return building;
@@ -147,7 +149,7 @@ public class LevelGen
                 if (building[r][c] == 0xFFFFFFFF)           //black
                     building[r][c] = wall;
                 else if (building[r][c] == 0xff22B14C)      //green
-                    building[r][c] = FloorTiles[(int)(Math.random()*(FloorTiles.length))];  //any green will be the same as the floor of the map.
+                    building[r][c] = floor1;
                 //list other hex codes and conversion here:
             }
         }
