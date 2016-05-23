@@ -20,6 +20,7 @@ public class Structure {
         SIZE = size;
         floorplan = new int[SIZE * SIZE];
         load();
+        System.out.println("Structure loaded!");
     }
 
     public int[] getfloorplan() {
