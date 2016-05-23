@@ -47,46 +47,7 @@ public class GenLevel extends Level {
 
     public void placestructure(Structure a) {
         System.out.println("Structure placing");
-        //CONVERT IMAGE TO PROPER FORMAT-----------------------------------------------------------
-
-        //copies the pixel array and size from the floorplan (an image from the structure class)
-        int size = a.getSize();
-        int[] floorplan = a.getfloorplan();
-        //converts to a 2d array for better placement on the map
-        int[][] build = singleto2D(floorplan, size);
-        build = hexToInt(build);
-
-        //FIND AND CONFIRM LOCATION TO PLACE STRUCTURE---------------------------------------------
-        int upperleftcornerX = 1;
-        int upperleftcornerY = 1;
-
-        //check if structure goes outside of the level map or if structure is going to be placed in another structure. If yes, find another location at random.
-        ArrayList<Integer> tempX = new ArrayList<Integer>();
-        ArrayList<Integer> tempY = new ArrayList<Integer>();
-
-        do {
-            tempX.clear();
-            tempY.clear();
-            upperleftcornerX = (int) (Math.random() * width);
-            upperleftcornerY = (int) (Math.random() * height);
-            for (int i = 0; i < size; i++) {
-                for (int j = 0; j < size; j++) {
-                    tempX.add(upperleftcornerX + i);
-                    tempY.add(upperleftcornerY + j);
-                }
-            }
-        } while ((upperleftcornerX + size) >= width || (upperleftcornerY + size) >= height );
-
-        //PLACE STRUCTURE ON THE MAP.--------------------------------------------------------------
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                tiles[upperleftcornerX + i][upperleftcornerY + j] = build[i][j];
-                System.out.println(build[i][j]);
-//                addedstructureX.add(upperleftcornerX + i);
-//                addedstructureY.add(upperleftcornerY + j);
-            }
-            System.out.println();
-        }
+        placestructure(a, (int)(Math.random() * width), (int)(Math.random() * height));
     }
 
     public void placestructure(Structure a, int upperleftX, int upperleftY) {
@@ -97,7 +58,6 @@ public class GenLevel extends Level {
         int[] floorplan = a.getfloorplan();
         //converts to a 2d array for better placement on the map and replaces hex codes with tile ID#
         int[][] build = singleto2D(floorplan, size);
-        build = hexToInt(build);
 
         //CONFIRM LOCATION TO PLACE STRUCTURE------------------------------------------------------
         int upperleftcornerX = upperleftX;
@@ -106,7 +66,10 @@ public class GenLevel extends Level {
         //PLACE STRUCTURE ON THE MAP.--------------------------------------------------------------
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                tiles[upperleftcornerX + i][upperleftcornerY + j] = build[i][j];
+                if(build[i][j] == 0xFF000000){
+                    tiles[upperleftcornerX + i][upperleftcornerY + j] = 10;
+                }
+                //tiles[upperleftcornerX + i][upperleftcornerY + j] = build[i][j];
             }
         }
     }
@@ -119,24 +82,6 @@ public class GenLevel extends Level {
         for (int s = 0; s < size; s += size) {
             for (int i = 0; i < size; i++) {
                 building[i][s] = a[s * size + i];
-            }
-        }
-        return building;
-    }
-
-    public int[][] hexToInt(int[][] a) {
-        //reads building array and replaces the HEXADECIMAL color codes with int that represents what tile is supposed to go there.
-        int[][] building = new int[a.length][a[0].length];
-        building = a;
-        for (int r = 0; r < building.length; r++) {
-            for (int c = 0; c < building[0].length; c++) {
-                if (building[r][c] == 0xFFFFFFFF) //black
-                {
-                    building[r][c] = wall;
-                } else if (building[r][c] == 0xff22B14C) //green
-                {
-                    building[r][c] = (int) (Math.random() * 11) + 1;;  //any green will be the same as the floor of the map.
-                }                //list other hex codes and conversion here:
             }
         }
         return building;
