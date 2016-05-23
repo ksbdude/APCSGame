@@ -30,10 +30,9 @@ public class GenLevel extends Level {
 
     @Override
     public Tile getTile(int x, int y) {
-        if (x < 0 || y < 0) {
+        if (x < 0 || y < 0 || x > width - 1 || y > height - 1) {
             return Tile.voidTile;
-        }
-        if (tiles[x][y] < 9) {
+        } else if (tiles[x][y] < 9) {
             return Tile.grass;
         } else if (tiles[x][y] == 9) {
             return Tile.rock;
@@ -47,7 +46,7 @@ public class GenLevel extends Level {
 
     public void placestructure(Structure a) {
         System.out.println("Structure placing");
-        placestructure(a, (int)(Math.random() * width), (int)(Math.random() * height));
+        placestructure(a, 10, 10);
     }
 
     public void placestructure(Structure a, int upperleftX, int upperleftY) {
@@ -66,11 +65,15 @@ public class GenLevel extends Level {
         //PLACE STRUCTURE ON THE MAP.--------------------------------------------------------------
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                if(build[i][j] == 0xFF000000){
+                if (build[i][j] == 0xFF000000) {
                     tiles[upperleftcornerX + i][upperleftcornerY + j] = 10;
+                } else {
+                    tiles[upperleftcornerX + i][upperleftcornerY + j] = 1;
                 }
+                System.out.print(tiles[upperleftcornerX + i][upperleftcornerY + j] + "\t");
                 //tiles[upperleftcornerX + i][upperleftcornerY + j] = build[i][j];
             }
+            System.out.println();
         }
     }
 
@@ -79,7 +82,7 @@ public class GenLevel extends Level {
         int size = b;
         int[][] building = new int[size][size];
 
-        for (int s = 0; s < size; s += size) {
+        for (int s = 0; s < size; s += 1) {
             for (int i = 0; i < size; i++) {
                 building[i][s] = a[s * size + i];
             }
