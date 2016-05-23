@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 
 public class Structure {
 
-    public static Structure dungeon = new Structure("", 64);
+    //public static Structure dungeon = new Structure("", 16);
 
     private int[] floorplan;
     private int width, height;
