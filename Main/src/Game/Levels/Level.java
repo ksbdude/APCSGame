@@ -1,5 +1,6 @@
-package Game;
+package Game.Levels;
 
+import Game.Game;
 import Game.Graphics.Screen;
 import Game.Tile.Tile;
 import java.util.ArrayList;
@@ -8,11 +9,12 @@ import javax.swing.text.html.parser.Entity;
 
 public class Level {
 
-    public static Level spawn = new RandomLevel(64, 64);
+    public static Level spawn = new GenLevel(64, 64);
 
     protected int width, height;
-    protected int[] tileInt;
-    protected int[] tiles;
+    //protected int[] tileInt;
+    //protected int[] tiles;
+    protected int[][] tiles;
 
     private List<Entity> entites = new ArrayList<Entity>();
     //List<Projectile> projectiles = new ArrayList<Projectile>();
@@ -25,7 +27,7 @@ public class Level {
     public Level(int width, int height) {
         this.width = width;
         this.height = height;
-        tileInt = new int[width * height];
+        tiles = new int[width][height];
         generateLevel();
     }
 
@@ -154,11 +156,11 @@ public class Level {
         } else if (x == 0 || y == 0) {
             return Tile.rock;
         }
-        if (tileInt[x + y * width] == 1 || tileInt[x + y * width] == 3) {
+        if (tiles[x][y] == 1 || tiles[x][y] == 3) {
             return Tile.sand;
-        } else if (tileInt[x + y * width] == 2) {
+        } else if (tiles[x][y] == 2) {
             return Tile.rock;
-        } else if (tileInt[x + y * width] == 3) {
+        } else if (tiles[x][y] == 3) {
             return Tile.sand4;
         }
         return Tile.grass;
