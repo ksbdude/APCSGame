@@ -13,9 +13,9 @@ public class Enemy extends Mob {
 
     @Override
     public void update() {
-        private int targetx = Game.Game.player.x;
-        private int targety = Game.Game.player.y;
-        private int xa = 0, ya = 0;
+        int targetx = Game.Game.player.x;
+        int targety = Game.Game.player.y;
+        int xa = 0, ya = 0;
         if (targetx < x) {
             xa = -1;
         } else if (targetx > x) {
