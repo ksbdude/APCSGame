@@ -12,6 +12,7 @@ public class Sprite {
     public static Sprite sand = new Sprite(16, 0, 0, SpriteSheet.sand);
     public static Sprite sand4 = new Sprite(16, 0, 0, SpriteSheet.sand4);
     public static Sprite player = new Sprite(32, 0, 0, SpriteSheet.player);
+    public static Sprite wall = new Sprite(16, 0, 0, SpriteSheet.wall);
     
     
 //    public static Sprite wall = new Sprite(16, 1, 1, SpriteSheet.tiles);
