@@ -1,3 +1,4 @@
+package Game;
 
 import java.util.ArrayList;
 
@@ -65,12 +66,13 @@ public class LevelGen
         ArrayList<Integer> tempX = new ArrayList<Integer>();
         ArrayList<Integer> tempY = new ArrayList<Integer>();
         
+        int attempts = 0;
         do
         {
             tempX.clear();
             tempY.clear();
-            upperleftcornerX = (int)(Math.random()*width);
-            upperleftcornerY = (int)(Math.random()*height);
+            upperleftcornerX = (int)(Math.random()*width)+1;
+            upperleftcornerY = (int)(Math.random()*height)+1;
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -78,6 +80,12 @@ public class LevelGen
                     tempX.add(upperleftcornerX + i);
                     tempY.add(upperleftcornerY + j);
                 }
+            }
+            attempts++;
+            if (attempts > 10000)   //if the program tries to put in a structure but has no space, it will continue to try to run the loop until it has attempted it 10000 times.
+            {
+                System.out.println("A structure was not able to be placed");
+                break;
             }
         } while ((upperleftcornerX+size) >= width || (upperleftcornerY+size) >= height || !validstructurelocation(addedstructureX, addedstructureY, tempX, tempY, size));
         
@@ -91,6 +99,7 @@ public class LevelGen
                 addedstructureY.add(upperleftcornerY + j);
             }
         }
+        System.out.println("Structure was placed at: " + upperleftcornerX + " , " + upperleftcornerY);
     }
     
     public void placestructure(Structure a, int upperleftX, int upperleftY)
@@ -115,6 +124,8 @@ public class LevelGen
             for (int j = 0; j < size; j++)
             {
                 level[upperleftcornerX + i][upperleftcornerY + j] = build[i][j];
+                addedstructureX.add(upperleftcornerX + i);
+                addedstructureY.add(upperleftcornerY + j);
             }
         }
     }
@@ -125,11 +136,11 @@ public class LevelGen
         int size = b;
         int[][] building = new int[size][size];
         
-        for (int s = 0; s < size; s+=size)
+        for (int r = 0; r < size; r++)
         {
             for (int i = 0; i < size; i++)
             {
-                building[i][s] = a[s*size + i];
+                building[r][i] = a[r*size + i];
             }
         }
         return building;
@@ -147,20 +158,20 @@ public class LevelGen
                 if (building[r][c] == 0xFFFFFFFF)           //black
                     building[r][c] = wall;
                 else if (building[r][c] == 0xff22B14C)      //green
-                    building[r][c] = FloorTiles[(int)(Math.random()*(FloorTiles.length))];  //any green will be the same as the floor of the map.
+                    building[r][c] = floor1;
                 //list other hex codes and conversion here:
             }
         }
         return building;
     }
     
-    public boolean validstructurelocation(ArrayList<Integer> aX, ArrayList<Integer> aY, ArrayList<Integer> bX, ArrayList<Integer> bY, int s)
+    public boolean validstructurelocation(ArrayList<Integer> addedX, ArrayList<Integer> addedY, ArrayList<Integer> bX, ArrayList<Integer> bY, int size)
     {
-        for (int i = 0; i < s; i++)
+        for (int r = 0; r <= size; r++)
         {
-            for (int j = 0; j < s; j++)
+            for (int c = 0; c <= size; c++)
             {
-                if ( aX.contains(bX.get(i)) && aY.contains(bY.get(j)) )
+                if ( addedX.contains(bX.get(r)) && addedY.contains(bY.get(c)) )
                     return false;
             }
         }

@@ -1,6 +1,5 @@
 package Game.Entity;
 
-
 import Game.Graphics.Screen;
 import Game.Graphics.Sprite;
 import Game.Keyboard;
@@ -8,13 +7,12 @@ import Game.Keyboard;
 public class Player extends Mob {
 
     private Keyboard input;
-    private Sprite sprite;
     private int fireRate = 0;
     double state = 0;
 
     public Player(Keyboard input) {
         this.input = input;
-        sprite = Sprite.player;
+        sprite = Sprite.playerF;
         dir = Direction.DOWN;
     }
 
@@ -25,19 +23,22 @@ public class Player extends Mob {
         //fireRate = MagicProjectile.FIRE_RATE;
     }
 
+    private int speed = 2;
+
+    @Override
     public void update() {
         int xa = 0, ya = 0;
         if (input.up) {
-            ya--;
+            ya -= speed;
         }
         if (input.down) {
-            ya++;
+            ya += speed;
         }
         if (input.left) {
-            xa--;
+            xa -= speed;
         }
         if (input.right) {
-            xa++;
+            xa += speed;
         }
 
         if (xa != 0 || ya != 0) {
@@ -77,40 +78,39 @@ public class Player extends Mob {
     }
 
     public void render(Screen screen) {
-        /*if (dir == Direction.RIGHT) {
-         if (state < 10 || (state > 20 && state < 30)) {
-         sprite = Sprite.playerR1;
-         } else if (state < 20) {
-         sprite = Sprite.playerR;
-         } else {
-         sprite = Sprite.playerR2;
-         }
-         } else if (dir == Direction.DOWN) {
-         if (state < 10 || (state > 20 && state < 30)) {
-         sprite = Sprite.playerF1;
-         } else if (state < 20) {
-         sprite = Sprite.playerF;
-         } else {
-         sprite = Sprite.playerF2;
-         }
-         } else if (dir == Direction.LEFT) {
-         if (state < 10 || (state > 20 && state < 30)) {
-         sprite = Sprite.playerL1;
-         } else if (state < 20) {
-         sprite = Sprite.playerL;
-         } else {
-         sprite = Sprite.playerL2;
-         }
-         } else if (dir == Direction.UP) {
-         if (state < 10 || (state > 20 && state < 30)) {
-         sprite = Sprite.playerU1;
-         } else if (state < 20) {
-         sprite = Sprite.playerU;
-         } else {
-         sprite = Sprite.playerU2;
-         }
-         }
-         */
+        if (dir == Direction.RIGHT) {
+            if (state < 10 || (state > 20 && state < 30)) {
+                sprite = Sprite.playerR1;
+            } else if (state < 20) {
+                sprite = Sprite.playerR;
+            } else {
+                sprite = Sprite.playerR2;
+            }
+        } else if (dir == Direction.DOWN) {
+            if (state < 10 || (state > 20 && state < 30)) {
+                sprite = Sprite.playerF1;
+            } else if (state < 20) {
+                sprite = Sprite.playerF;
+            } else {
+                sprite = Sprite.playerF2;
+            }
+        } else if (dir == Direction.LEFT) {
+            if (state < 10 || (state > 20 && state < 30)) {
+                sprite = Sprite.playerL1;
+            } else if (state < 20) {
+                sprite = Sprite.playerL;
+            } else {
+                sprite = Sprite.playerL2;
+            }
+        } else if (dir == Direction.UP) {
+            if (state < 10 || (state > 20 && state < 30)) {
+                sprite = Sprite.playerU1;
+            } else if (state < 20) {
+                sprite = Sprite.playerU;
+            } else {
+                sprite = Sprite.playerU2;
+            }
+        }
 
         screen.renderMob(x + screen.width / 2 - 16, y + screen.height / 2 - 16, sprite);
     }

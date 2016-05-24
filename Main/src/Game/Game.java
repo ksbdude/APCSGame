@@ -2,6 +2,8 @@ package Game;
 
 import Game.Entity.Player;
 import Game.Graphics.Screen;
+import Game.Levels.GenLevel;
+import Game.Levels.Level;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.*;
@@ -21,7 +23,7 @@ public class Game extends Canvas implements Runnable {
 	private boolean running = false;
 	private Screen screen;
 	public static Level level;
-	private Player player;
+	public static Player player;
 
 	public static String title = "Game";
 
@@ -34,7 +36,7 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new Keyboard();
-		// level = new RandomLevel(64, 64);
+		level = new GenLevel(64, 64);
 		level = Level.spawn;
 		player = new Player(12, 12, key);
 		player.init(level);

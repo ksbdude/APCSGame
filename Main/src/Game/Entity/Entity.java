@@ -1,7 +1,7 @@
 package Game.Entity;
 
 import Game.Graphics.Screen;
-import Game.Level;
+import Game.Levels.Level;
 import java.util.Random;
 
 public class Entity {
