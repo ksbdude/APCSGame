@@ -7,7 +7,6 @@ import Game.Keyboard;
 public class Player extends Mob {
 
     private Keyboard input;
-    private Sprite sprite;
     private int fireRate = 0;
     double state = 0;
 
@@ -24,19 +23,22 @@ public class Player extends Mob {
         //fireRate = MagicProjectile.FIRE_RATE;
     }
 
+    private int speed = 2;
+
+    @Override
     public void update() {
         int xa = 0, ya = 0;
         if (input.up) {
-            ya--;
+            ya -= speed;
         }
         if (input.down) {
-            ya++;
+            ya += speed;
         }
         if (input.left) {
-            xa--;
+            xa -= speed;
         }
         if (input.right) {
-            xa++;
+            xa += speed;
         }
 
         if (xa != 0 || ya != 0) {

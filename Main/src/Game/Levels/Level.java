@@ -1,11 +1,12 @@
 package Game.Levels;
 
+import Game.Entity.Enemy;
+import Game.Entity.Entity;
 import Game.Game;
 import Game.Graphics.Screen;
 import Game.Tile.Tile;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.text.html.parser.Entity;
 
 public class Level {
 
@@ -16,7 +17,7 @@ public class Level {
     //protected int[] tiles;
     protected int[][] tiles;
 
-    private List<Entity> entites = new ArrayList<Entity>();
+    List<Entity> entites = new ArrayList<Entity>();
     //List<Projectile> projectiles = new ArrayList<Projectile>();
     //List<Particle> particles = new ArrayList<Particle>();
 
@@ -45,10 +46,10 @@ public class Level {
     }
 
     public void update() {
-        /*for (int i = 0; i < entites.size(); i++) {
-         entites.get(i).update();
-         }
-         for (int i = 0; i < projectiles.size(); i++) {
+        for (Entity entite : entites) {
+            entite.update();
+        }
+        /* for (int i = 0; i < projectiles.size(); i++) {
          projectiles.get(i).update();
          }
          for (int i = 0; i < particles.size(); i++) {
@@ -82,15 +83,18 @@ public class Level {
     }
 
     public void add(Entity e) {
-        /*e.init(this);
-         if (e instanceof Particle) {
-         particles.add((Particle) e);
-         } else if (e instanceof Projectile) {
-         projectiles.add((Projectile) e);
-         } else {
-         entites.add(e);
-         }
-         */
+        //e.init(this);
+//        if(e instanceof Enemy){
+//            
+//        }
+//        if (e instanceof Particle) {
+//         particles.add((Particle) e);
+//         } else if (e instanceof Projectile) {
+//         projectiles.add((Projectile) e);
+//         } else {
+        entites.add(e);
+        //}
+
     }
 
     public void render(int xScroll, int yScroll, Screen screen) {
@@ -112,9 +116,9 @@ public class Level {
             }
         }
 
-        /*for (int i = 0; i < entites.size(); i++) {
-         entites.get(i).render(screen);
-         }*/
+        for (int i = 0; i < entites.size(); i++) {
+            entites.get(i).render(screen);
+        }
         /*for (int i = 0; i < projectiles.size(); i++) {
          projectiles.get(i).render(screen);
          }

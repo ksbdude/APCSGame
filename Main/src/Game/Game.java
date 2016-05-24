@@ -23,7 +23,7 @@ public class Game extends Canvas implements Runnable {
 	private boolean running = false;
 	private Screen screen;
 	public static Level level;
-	private Player player;
+	public static Player player;
 
 	public static String title = "Game";
 

@@ -1,5 +1,6 @@
 package Game.Levels;
 
+import Game.Entity.Enemy;
 import Game.Tile.Tile;
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class GenLevel extends Level {
             }
         }
         placestructure(Structure.dungeon);
+        add(new Enemy(20, 20));
     }
 
     @Override
