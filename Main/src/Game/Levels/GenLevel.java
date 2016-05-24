@@ -40,6 +40,8 @@ public class GenLevel extends Level {
             return Tile.sand;
         } else if (tiles[x][y] == 11) {
             return Tile.sand4;
+        } else if (tiles[x][y] == 12) {
+            return Tile.wall;
         }
         return Tile.voidTile;
     }

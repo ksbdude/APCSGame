@@ -50,7 +50,7 @@ public class Structure {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 if(floorplan[x + y * width] == 0xFF22b14c){
-                    floorplan[x + y * width] = 1;
+                    floorplan[x + y * width] = 12;
                 } else {
                     floorplan[x + y * width] = 9;
                 }
