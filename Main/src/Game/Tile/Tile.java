@@ -9,7 +9,7 @@ public class Tile {
     public Sprite sprite;
 
     public static Tile grass = new GrassTile(Sprite.grass);
-    public static Tile rock = new RockTile(Sprite.rock);
+    public static Tile rock = new GrassTile(Sprite.rock);
     public static Tile sand = new GrassTile(Sprite.sand);
     public static Tile sand4 = new GrassTile(Sprite.sand4);
     public static Tile wall = new RockTile(Sprite.wall);

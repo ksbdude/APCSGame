@@ -7,7 +7,7 @@ public class GenLevel extends Level {
 
     private ArrayList<Integer> addedstructureX = new ArrayList<Integer>();
     private ArrayList<Integer> addedstructureY = new ArrayList<Integer>();
-    private int wall = 0, floor1 = 1, floor2 = 2;
+    private final int wall = 0, floor1 = 1, floor2 = 2;
 
     public GenLevel(int width, int height) {
         super(width, height);
@@ -47,11 +47,11 @@ public class GenLevel extends Level {
     }
 
     public void placestructure(Structure a) {
-        System.out.println("Structure placing");
         placestructure(a, 10, 10);
     }
 
     public void placestructure(Structure a, int upperleftX, int upperleftY) {
+        System.out.println("Structure placing");
         //CONVERT IMAGE TO PROPER FORMAT-----------------------------------------------------------
 
         //copies the pixel array and size from the floorplan (an image from the structure class)
@@ -68,7 +68,7 @@ public class GenLevel extends Level {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (build[i][j] == 0xFF000000) {
-                    tiles[upperleftcornerX + i][upperleftcornerY + j] = 10;
+                    tiles[upperleftcornerX + i][upperleftcornerY + j] = 12;
                 } else {
                     tiles[upperleftcornerX + i][upperleftcornerY + j] = 1;
                 }
