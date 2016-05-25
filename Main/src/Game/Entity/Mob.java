@@ -61,7 +61,15 @@ public class Mob extends Entity {
                 return true;
             }
         }
-        //
+        int xt = ((x + xa + Game.width / 2)) / 16;
+        int yt = ((y + ya + Game.height / 2) - 1) / 16;
+        if (level.getTile(xt, yt).solid()) {
+            return true;
+        }
+        yt = ((y + ya + Game.height / 2) + 14) / 16;
+        if (level.getTile(xt, yt).solid()) {
+            return true;
+        }
         // System.out.println("x: " + ((x + xa + Game.width / 2) / 16) + "y: " +
         // ((y + ya + Game.height / 2) / 16));
         // if (level.getTile(((x + xa + Game.width / 2) / 16), ((y + ya +
@@ -73,7 +81,8 @@ public class Mob extends Entity {
         // .solid()) {
         // solid = true;
         // }
-
-        return false;
+        {
+            return false;
+        }
     }
 }
