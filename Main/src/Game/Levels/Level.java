@@ -1,6 +1,5 @@
 package Game.Levels;
 
-import Game.Entity.Enemy;
 import Game.Entity.Entity;
 import Game.Game;
 import Game.Graphics.Screen;

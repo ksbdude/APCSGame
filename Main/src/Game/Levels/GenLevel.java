@@ -14,6 +14,7 @@ public class GenLevel extends Level {
         super(width, height);
     }
 
+    @Override
     protected void generateLevel() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
@@ -28,6 +29,7 @@ public class GenLevel extends Level {
         }
         placestructure(Structure.dungeon);
         add(new Enemy(20, 20));
+        add(new Enemy(100, 100));
     }
 
     @Override
@@ -49,7 +51,7 @@ public class GenLevel extends Level {
     }
 
     public void placestructure(Structure a) {
-        placestructure(a, 10, 10);
+        placestructure(a, (int) (Math.random() * (width - a.getSize())), (int) (Math.random() * (height - a.getSize())));
     }
 
     public void placestructure(Structure a, int upperleftX, int upperleftY) {
