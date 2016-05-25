@@ -1,8 +1,10 @@
 package Game.Entity;
 
+import Game.Game;
 import Game.Graphics.Screen;
 import Game.Graphics.Sprite;
 import Game.Keyboard;
+import Game.Mouse;
 
 public class Player extends Mob {
 
@@ -17,7 +19,7 @@ public class Player extends Mob {
     }
 
     public Player(int x, int y, Keyboard input) {
-        this(input);// calls above
+        this(input);
         this.x = x;
         this.y = y;
         //fireRate = MagicProjectile.FIRE_RATE;
@@ -68,15 +70,17 @@ public class Player extends Mob {
     }
 
     public void updateShooting() {
-        /*if (Mouse.getButton() == 1 && fireRate <= 0) {
-         double dx = Mouse.getX() - Game.width * Game.scale / 2;
-         double dy = Mouse.getY() - Game.height * Game.scale / 2;
-         double direction = Math.atan2(dy, dx);
-         shoot(x, y, direction);
-         fireRate = MagicProjectile.FIRE_RATE;
-         }*/
+        if (Mouse.getButton() == 1 && fireRate <= 0) {
+            double dx = Mouse.getX() - Game.width * Game.scale / 2;
+            double dy = Mouse.getY() - Game.height * Game.scale / 2;
+            double direction = Math.atan2(dy, dx);
+            shoot(x, y, direction);
+            fireRate = Projectile.FIRE_RATE;
+            System.out.println(direction);
+        }
     }
 
+    @Override
     public void render(Screen screen) {
         if (dir == Direction.RIGHT) {
             if (state < 10 || (state > 20 && state < 30)) {

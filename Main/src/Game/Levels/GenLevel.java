@@ -95,15 +95,4 @@ public class GenLevel extends Level {
         }
         return building;
     }
-
-//    public boolean validstructurelocation(ArrayList<Integer> aX, ArrayList<Integer> aY, ArrayList<Integer> bX, ArrayList<Integer> bY, int s) {
-//        for (int i = 0; i < s; i++) {
-//            for (int j = 0; j < s; j++) {
-//                if (aX.contains(bX.get(i)) && aY.contains(bY.get(j))) {
-//                    return false;
-//                }
-//            }
-//        }
-//        return true;
-//    }
 }
