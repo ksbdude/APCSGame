@@ -71,7 +71,7 @@ public class Sprite {
 //    public static Sprite enemyU2 = new Sprite(32, 2, 7, SpriteSheet.tiles);
 //    public static Sprite particle = new Sprite(3, 0xAAAAAA);
     //projectile Sprites
-//    public static Sprite projectileWizard = new Sprite(16, 0, 2, SpriteSheet.tiles);
+    public static Sprite projectile = new Sprite(16, 0, 2, SpriteSheet.sprites);
     public Sprite(int size, int x, int y, SpriteSheet sheet) {
         SIZE = size;
         pixels = new int[size * size];
