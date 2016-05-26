@@ -31,6 +31,9 @@ public class Sprite {
     public static Sprite playerU2 = new Sprite(32, 2, 7, SpriteSheet.sprites);
 
     public static Sprite door1 = new Sprite(16, 5, 0, SpriteSheet.sprites);
+    public static Sprite door2 = new Sprite(16, 6, 0, SpriteSheet.sprites);
+    public static Sprite door3 = new Sprite(16, 5, 1, SpriteSheet.sprites);
+    public static Sprite door4 = new Sprite(16, 6, 1, SpriteSheet.sprites);
 
     public static Sprite projectile = new Sprite(16, 0, 2, SpriteSheet.sprites);
 

@@ -27,7 +27,7 @@ public class GenLevel extends Level {
                 }
             }
         }
-        placestructure(Structure.dungeon);
+        placestructure(Structure.dungeon, 10, 10);
         add(new Enemy(20, 20));
         add(new Enemy(100, 100));
     }
