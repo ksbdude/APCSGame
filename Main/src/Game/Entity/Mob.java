@@ -44,7 +44,6 @@ public class Mob extends Entity {
             x += xa;
             y += ya;
         }
-
     }
 
     protected void shoot(double xa, double xy, double dir) {
@@ -60,6 +59,9 @@ public class Mob extends Entity {
             if (level.getTile(xt, yt).solid()) {
                 return true;
             }
+            if (level.getTile(xt, yt).isDoor()) {
+                System.out.println("Door");
+            }
         }
         int xt = ((x + xa + Game.width / 2)) / 16;
         int yt = ((y + ya + Game.height / 2) - 1) / 16;
@@ -70,19 +72,6 @@ public class Mob extends Entity {
         if (level.getTile(xt, yt).solid()) {
             return true;
         }
-        // System.out.println("x: " + ((x + xa + Game.width / 2) / 16) + "y: " +
-        // ((y + ya + Game.height / 2) / 16));
-        // if (level.getTile(((x + xa + Game.width / 2) / 16), ((y + ya +
-        // Game.height / 2) / 16)).solid()) {
-        // solid = true;
-        //
-        // } else if (level.getTile(((x + xa + Game.width / 2) / 16), ((16 + y +
-        // ya + Game.height / 2) / 16))
-        // .solid()) {
-        // solid = true;
-        // }
-        {
-            return false;
-        }
+        return false;
     }
 }

@@ -5,6 +5,7 @@ import Game.Graphics.Screen;
 import Game.Graphics.Sprite;
 import Game.Keyboard;
 import Game.Mouse;
+import Game.Tile.DoorTile;
 
 public class Player extends Mob {
 
@@ -53,6 +54,19 @@ public class Player extends Mob {
         } else {
             state = 0;
         }
+
+        //System.out.println((x >> 4) + " " + (y >> 4) + " " + level.getTile(x >> 4, y >> 4).isDoor());
+        for (int c = 0; c < 4; c++) {
+            int xt = ((x + xa + Game.width / 2) + c % 2 * 21 - 10) / 16;
+            int yt = ((y + ya + Game.height / 2) + c / 2 * 16 - 1) / 16;
+            if (level.getTile(xt, yt) instanceof DoorTile) {
+                System.out.println("DOOR");
+                level = level.getTile(xt, yt).getLevel();
+                x = 5;
+                y = 5;
+            }
+        }
+
         clear();
         if (fireRate > 0) {
             fireRate--;
@@ -61,12 +75,12 @@ public class Player extends Mob {
     }
 
     private void clear() {
-        /*for (int i = 0; i < level.getProjectiles().size(); i++) {
-         Projectile p = level.getProjectiles().get(i);
-         if (p.isRemoved()) {
-         level.getProjectiles().remove(i);
-         }
-         }*/
+        for (int i = 0; i < level.getProjectiles().size(); i++) {
+            Projectile p = level.getProjectiles().get(i);
+            if (p.isRemoved()) {
+                level.getProjectiles().remove(i);
+            }
+        }
     }
 
     public void updateShooting() {

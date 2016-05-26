@@ -11,6 +11,7 @@ import java.util.List;
 public class Level {
 
     public static Level spawn = new GenLevel(64, 64);
+    public static Level level2 = new GenLevel(64, 64);
 
     protected int width, height;
     protected int[][] tiles;
@@ -46,8 +47,8 @@ public class Level {
         for (Entity entite : entites) {
             entite.update();
         }
-        for (int i = 0; i < projectiles.size(); i++) {
-            projectiles.get(i).update();
+        for (Projectile projectile : projectiles) {
+            projectile.update();
         }
         remove();
     }

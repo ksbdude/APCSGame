@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 
 public class Structure {
 
-    public static Structure dungeon = new Structure("/textures/Room1.png", 26);
+    public static Structure dungeon = new Structure("/textures/Room1dungeon.png", 26);
 
     private int[] floorplan;
     private int width, height;

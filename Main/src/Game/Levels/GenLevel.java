@@ -46,6 +46,8 @@ public class GenLevel extends Level {
             return Tile.sand4;
         } else if (tiles[x][y] == 12) {
             return Tile.wall;
+        } else if (tiles[x][y] == 13) {
+            return Tile.door1;
         }
         return Tile.voidTile;
     }
@@ -73,6 +75,8 @@ public class GenLevel extends Level {
             for (int j = 0; j < size; j++) {
                 if (build[i][j] == 0xFF000000) {
                     tiles[upperleftcornerX + i][upperleftcornerY + j] = 12;
+                } else if (build[i][j] == 0xFFFFAEC9) {
+                    tiles[upperleftcornerX + i][upperleftcornerY + j] = 13;
                 } else {
                     tiles[upperleftcornerX + i][upperleftcornerY + j] = 1;
                 }

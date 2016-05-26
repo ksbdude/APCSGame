@@ -41,7 +41,7 @@ public class Projectile extends Entity {
         this.y = y;
         range = Math.random() * 50 + 100;
         damage = 20;
-        speed = 2;
+        speed = 3;
         sprite = Sprite.projectile;
         nx = speed * Math.cos(angle);
         ny = speed * Math.sin(angle);
