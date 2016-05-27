@@ -62,6 +62,7 @@ public class Player extends Mob {
             if (level.getTile(xt, yt) instanceof DoorTile) {
                 System.out.println("DOOR");
                 level = level.getTile(xt, yt).getLevel();
+                Game.level = level;
                 x = 5;
                 y = 5;
             }
