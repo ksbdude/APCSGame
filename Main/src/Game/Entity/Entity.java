@@ -11,7 +11,7 @@ public class Entity {
 	protected Level level;
 	protected final Random random = new Random();
 
-	public void init(Level level) {
+	public Entity(Level level) {
 		this.level = level;
 	}
 
@@ -30,5 +30,9 @@ public class Entity {
 	public boolean isRemoved() {
 		return removed;
 	}
+        
+        public Level getLevel(){
+            return level;
+        }
 
 }

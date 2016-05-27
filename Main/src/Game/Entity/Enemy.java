@@ -2,10 +2,12 @@ package Game.Entity;
 
 import Game.Graphics.Screen;
 import Game.Graphics.Sprite;
+import Game.Levels.Level;
 
 public class Enemy extends Mob {
 
-    public Enemy(int x, int y) {
+    public Enemy(int x, int y, Level level) {
+        super(level);
         this.x = x;
         this.y = y;
         sprite = Sprite.playerF;
@@ -36,8 +38,12 @@ public class Enemy extends Mob {
             ya = 0;
         }
 
-        x += xa;
-        y += ya;
+        if(!level.getTile(x + xa, y).solid()){
+            x += xa;
+        }
+        if(!level.getTile(x, y + ya).solid()){
+            y += ya;
+        }
     }
 
     @Override

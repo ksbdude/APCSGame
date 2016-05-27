@@ -2,11 +2,16 @@ package Game.Entity;
 
 import Game.Game;
 import Game.Graphics.Sprite;
+import Game.Levels.Level;
 
 public class Mob extends Entity {
 
     protected Sprite sprite;
     protected boolean moving = false;
+
+    public Mob(Level level) {
+        super(level);
+    }
 
     protected enum Direction {
 
@@ -63,8 +68,10 @@ public class Mob extends Entity {
                 System.out.println("Door");
             }
         }
+        
+        //additional checks
         int xt = ((x + xa + Game.width / 2)) / 16;
-        int yt = ((y + ya + Game.height / 2) - 1) / 16;
+        int yt = ((y + ya + Game.height / 2)) / 16;
         if (level.getTile(xt, yt).solid()) {
             return true;
         }
