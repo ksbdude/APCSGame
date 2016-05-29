@@ -60,7 +60,7 @@ public class Mob extends Entity {
     private boolean collision(int xa, int ya) {
         for (int c = 0; c < 4; c++) {
             int xt = ((x + xa + Game.width / 2) + c % 2 * 21 - 10) / 16;
-            int yt = ((y + ya + Game.height / 2) + c / 2 * 16 - 1) / 16;
+            int yt = ((y + ya + Game.height / 2) + c / 2 * 16 - 2) / 16;
             if (level.getTile(xt, yt).solid()) {
                 return true;
             }

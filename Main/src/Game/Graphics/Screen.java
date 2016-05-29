@@ -2,7 +2,6 @@ package Game.Graphics;
 
 import Game.Game;
 import Game.Tile.Tile;
-import java.util.Random;
 
 public class Screen {
 
@@ -14,7 +13,6 @@ public class Screen {
     public int xOffset = Game.width / 2, yOffset = Game.height / 2;
 
     // public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
-    
     public Screen(int width, int height) {
         this.width = width;
         this.height = height;
@@ -73,6 +71,14 @@ public class Screen {
                 if (col != 0xFFFF00FF) {
                     pixels[xa + ya * width] = col;
                 }
+            }
+        }
+    }
+
+    public void renderBar(int xa, int ya, int w, int h, int color) {
+        for (int x = xa; x < xa + w; x++) {
+            for (int y = ya; y < ya + h; y++) {
+                pixels[x + y * width] = color;
             }
         }
     }

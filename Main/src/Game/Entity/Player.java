@@ -7,12 +7,14 @@ import Game.Keyboard;
 import Game.Levels.Level;
 import Game.Mouse;
 import Game.Tile.DoorTile;
+import java.awt.Graphics;
 
 public class Player extends Mob {
 
     private Keyboard input;
     private int fireRate = 0;
     double state = 0;
+    int health = 100;
 
     public Player(Keyboard input, Level l) {
         super(l);
@@ -134,5 +136,7 @@ public class Player extends Mob {
         }
 
         screen.renderMob(x + screen.width / 2 - 16, y + screen.height / 2 - 16, sprite);
+        screen.renderBar(5, 5, 102, 8, 0xFFFFFFFF);
+        screen.renderBar(6, 6, health, 6, 0xFFFF0000);
     }
 }
