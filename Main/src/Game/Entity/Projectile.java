@@ -34,6 +34,7 @@ public class Projectile extends Entity {
     public static final int FIRE_RATE = 10;
 
     public Projectile(double x, double y, double dir, Level l) {
+        super(l);
         xOrigin = x;
         yOrigin = y;
         angle = dir;

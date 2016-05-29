@@ -49,7 +49,7 @@ public class Structure {
     public void fix() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                if(floorplan[x + y * width] == 0xFF22b14c){
+                if (floorplan[x + y * width] == 0xFF22b14c) {
                     floorplan[x + y * width] = 12;
                 } else {
                     floorplan[x + y * width] = 9;
@@ -57,4 +57,20 @@ public class Structure {
             }
         }
     }
+
+    private int x, y;
+
+    public void setPos(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    public int getX(){
+        return x;
+    }
+    
+    public int getY(){
+        return y;
+    }
+    
 }

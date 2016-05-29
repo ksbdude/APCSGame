@@ -6,15 +6,14 @@ import java.util.ArrayList;
 
 public class GenLevel extends Level {
 
-    private ArrayList<Integer> addedstructureX = new ArrayList<Integer>();
-    private ArrayList<Integer> addedstructureY = new ArrayList<Integer>();
+    public ArrayList<Structure> structures = new ArrayList<>();
     private final int type; //0 = grass, 1 = sand
-    
-    
+
     public GenLevel(int width, int height, int type) {
         super(width, height);
         this.type = type;
     }
+
     public GenLevel(int width, int height) {
         super(width, height);
         this.type = 0;
@@ -30,14 +29,15 @@ public class GenLevel extends Level {
                     tiles[x][y] = 0;
                 } else {
                     int random = (int) (Math.random() * 11) + 1;
-                    if(random > 4){
+                    if (random > 4) {
                         random = 1;
                     }
                     tiles[x][y] = random;
                 }
             }
         }
-        placestructure(Structure.dungeon, 10, 10);
+        placestructure(Structure.dungeon);
+        placestructure(Structure.dungeon);
         add(new Enemy(200, 200, Level.spawn));
         add(new Enemy(600, 600, Level.spawn));
     }
@@ -69,7 +69,25 @@ public class GenLevel extends Level {
     }
 
     public void placestructure(Structure a) {
-        placestructure(a, (int) (Math.random() * (width - a.getSize())), (int) (Math.random() * (height - a.getSize())));
+        int x = (int) (Math.random() * (width - a.getSize()));
+        int y = (int) (Math.random() * (height - a.getSize()));
+        //if(isValid(a, x, y)){
+        placestructure(a, x, y);
+        //}
+    }
+
+    private boolean isValid(Structure a, int x, int y) {
+        if (structures.isEmpty()) {
+            return true;
+        }
+//        for (int xa = 0; xa < structures.size(); xa++) {
+//            for (int ya = 0; ya < structures.size(); ya++) {
+//                if (x + a.getSize() > xa && y + a.getSize() > ya && x < xa + a.getSize() && y < ya + a.getSize()) {
+//                    return false;
+//                }
+//            }
+//        }
+        return true;
     }
 
     public void placestructure(Structure a, int upperleftX, int upperleftY) {

@@ -4,6 +4,7 @@ import Game.Game;
 import Game.Graphics.Screen;
 import Game.Graphics.Sprite;
 import Game.Keyboard;
+import Game.Levels.Level;
 import Game.Mouse;
 import Game.Tile.DoorTile;
 
@@ -13,14 +14,15 @@ public class Player extends Mob {
     private int fireRate = 0;
     double state = 0;
 
-    public Player(Keyboard input) {
+    public Player(Keyboard input, Level l) {
+        super(l);
         this.input = input;
         sprite = Sprite.playerF;
         dir = Direction.DOWN;
     }
 
-    public Player(int x, int y, Keyboard input) {
-        this(input);
+    public Player(int x, int y, Keyboard input, Level l) {
+        this(input, l);
         this.x = x;
         this.y = y;
         //fireRate = MagicProjectile.FIRE_RATE;
