@@ -46,6 +46,9 @@ public class Mouse implements MouseListener, MouseMotionListener {
     @Override
     public void mousePressed(MouseEvent e) {
         mouseB = e.getButton();
+        if(Game.inGame == false){
+            Game.inGame = true;
+        }
     }
 
     @Override

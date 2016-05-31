@@ -8,12 +8,12 @@ public class Entity {
 
 	public int x, y;
 	private boolean removed = false;
-	protected Level level;
+//	protected Level level;
 	protected final Random random = new Random();
 
-	public void init(Level level) {
-		this.level = level;
-	}
+//	public Entity(Level level) {
+//		this.level = level;
+//	}
 
 	public void update() {
 		
@@ -30,5 +30,4 @@ public class Entity {
 	public boolean isRemoved() {
 		return removed;
 	}
-
 }

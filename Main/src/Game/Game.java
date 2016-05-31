@@ -2,6 +2,7 @@ package Game;
 
 import Game.Entity.Player;
 import Game.Graphics.Screen;
+import Game.Graphics.SpriteSheet;
 import Game.Levels.GenLevel;
 import Game.Levels.Level;
 import java.awt.Canvas;
@@ -15,18 +16,20 @@ public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 1L;
     public static int width = 300;
-    public static int height = width / 16 * 10;
+    public static int height = width / 16 * 9;
     public static int scale = 4;
 
     private Thread thread;
-    private JFrame frame;
-    private Keyboard key;
+    private final JFrame frame;
+    private final Keyboard key;
     private boolean running = false;
-    private Screen screen;
+    private final Screen screen;
     public static Level level;
     public static Player player;
 
     public static String title = "Game";
+
+    public static boolean inGame = false;
 
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
@@ -38,9 +41,8 @@ public class Game extends Canvas implements Runnable {
         frame = new JFrame();
         key = new Keyboard();
         level = new GenLevel(64, 64);
-        level = Level.spawn;
-        player = new Player(12, 12, key);
-        player.init(level);
+        level = Level.dungeon;
+        player = new Player(12, 12, key, level);
         addKeyListener(key);
         Mouse mouse = new Mouse();
         addMouseListener(mouse);
@@ -62,6 +64,7 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
+    @Override
     public void run() {
         long lastTime = System.nanoTime();
         long timer = System.currentTimeMillis();
@@ -92,9 +95,11 @@ public class Game extends Canvas implements Runnable {
     }
 
     public void update() {
-        key.update();
-        player.update();
-        level.update();
+//        key.update();
+        if (inGame) {
+            player.update();
+            level.update();
+        }
     }
 
     public void render() {
@@ -105,8 +110,13 @@ public class Game extends Canvas implements Runnable {
         }
 
         screen.clear();
-        level.render(player.x, player.y, screen);
-        player.render(screen);
+
+        if (inGame) {
+            level.render(player.x, player.y, screen);
+            player.render(screen);
+        } else {
+            screen.renderSpriteSheet(0, 0, SpriteSheet.mainmenu);
+        }
 
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = screen.pixels[i];

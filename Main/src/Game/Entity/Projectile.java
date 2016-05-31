@@ -33,7 +33,7 @@ public class Projectile extends Entity {
 
     public static final int FIRE_RATE = 10;
 
-    public Projectile(double x, double y, double dir, Level l) {
+    public Projectile(double x, double y, double dir) {
         xOrigin = x;
         yOrigin = y;
         angle = dir;
@@ -41,24 +41,23 @@ public class Projectile extends Entity {
         this.y = y;
         range = Math.random() * 50 + 100;
         damage = 20;
-        speed = 2;
+        speed = 3;
         sprite = Sprite.projectile;
         nx = speed * Math.cos(angle);
         ny = speed * Math.sin(angle);
         sprite = Sprite.projectile;
-        level = l;
     }
 
     @Override
     public void update() {
-        if (level.tilecollision((int) (x + nx), (int) (y + ny), 7, 5, 4)) {
+        if (Game.level.tilecollision((int) (x + nx), (int) (y + ny), 7, 5, 4)) {
             remove();
         }
         move();
     }
 
     public void move() {
-        if (!level.tilecollision((int) (x + nx), (int) (y + 8 + ny), 1, 5, 4)) {
+        if (!Game.level.tilecollision((int) (x + nx), (int) (y + 8 + ny), 1, 5, 4)) {
             x += nx;
             y += ny;
         } else {
