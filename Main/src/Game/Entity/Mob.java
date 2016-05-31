@@ -2,7 +2,6 @@ package Game.Entity;
 
 import Game.Game;
 import Game.Graphics.Sprite;
-import Game.Levels.Level;
 
 public class Mob extends Entity {
 

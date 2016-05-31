@@ -13,6 +13,8 @@ public class Level {
     public static Level spawn = new GenLevel(64, 64);
     public static Level level2 = new GenLevel(64, 64, 1);
 
+    public static Level dungeon = new DungeonLevel(5, 5);
+
     protected int width, height;
     protected int[][] tiles;
 
@@ -99,21 +101,28 @@ public class Level {
     }
 
     public Tile getTile(int x, int y) {
-        if (x < 0 || y < 0) {
+        if (x < 0 || y < 0 || x > width - 1 || y > height - 1) {
             return Tile.voidTile;
-        }
-        if (x < 0 || y < 0) {
+        } else if (tiles[x][y] == 1) {
             return Tile.grass;
-        } else if (x == 0 || y == 0) {
-            return Tile.rock;
-        } else if (tiles[x][y] == 1 || tiles[x][y] == 3) {
-            return Tile.sand;
         } else if (tiles[x][y] == 2) {
             return Tile.rock;
         } else if (tiles[x][y] == 3) {
+            return Tile.sand;
+        } else if (tiles[x][y] == 4) {
             return Tile.sand4;
+        } else if (tiles[x][y] == 5) {
+            return Tile.wall;
+        } else if (tiles[x][y] == 11) {
+            return Tile.door1;
+        } else if (tiles[x][y] == 12) {
+            return Tile.door2;
+        } else if (tiles[x][y] == 13) {
+            return Tile.door3;
+        } else if (tiles[x][y] == 14) {
+            return Tile.door4;
         }
-        return Tile.grass;
+        return Tile.voidTile;
     }
 
     public boolean tilecollision(int x, int y, int size, int xOffset, int yOffset) {
