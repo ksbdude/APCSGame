@@ -41,7 +41,7 @@ public class Game extends Canvas implements Runnable {
         frame = new JFrame();
         key = new Keyboard();
         level = new GenLevel(64, 64);
-        level = Level.spawn;
+        level = Level.dungeon;
         player = new Player(12, 12, key, level);
         addKeyListener(key);
         Mouse mouse = new Mouse();

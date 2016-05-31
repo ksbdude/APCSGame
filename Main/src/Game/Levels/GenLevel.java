@@ -46,32 +46,6 @@ public class GenLevel extends Level {
         add(new Enemy(600, 600));
     }
 
-    @Override
-    public Tile getTile(int x, int y) {
-        if (x < 0 || y < 0 || x > width - 1 || y > height - 1) {
-            return Tile.voidTile;
-        } else if (tiles[x][y] == 1) {
-            return Tile.grass;
-        } else if (tiles[x][y] == 2) {
-            return Tile.rock;
-        } else if (tiles[x][y] == 3) {
-            return Tile.sand;
-        } else if (tiles[x][y] == 4) {
-            return Tile.sand4;
-        } else if (tiles[x][y] == 5) {
-            return Tile.wall;
-        } else if (tiles[x][y] == 11) {
-            return Tile.door1;
-        } else if (tiles[x][y] == 12) {
-            return Tile.door2;
-        } else if (tiles[x][y] == 13) {
-            return Tile.door3;
-        } else if (tiles[x][y] == 14) {
-            return Tile.door4;
-        }
-        return Tile.voidTile;
-    }
-
     public void placestructure(Structure a) {
         int x = (int) (Math.random() * (width - a.getSize()));
         int y = (int) (Math.random() * (height - a.getSize()));
