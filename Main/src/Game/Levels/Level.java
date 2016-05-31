@@ -45,9 +45,7 @@ public class Level {
 
     public void update() {
         for (Entity entite : entites) {
-            if (entite.getLevel() == this) {
-                entite.update();
-            }
+            entite.update();
         }
         for (Projectile projectile : projectiles) {
             projectile.update();
@@ -90,15 +88,12 @@ public class Level {
         }
 
         for (int i = 0; i < entites.size(); i++) {
-            if (entites.get(i).getLevel() == null) {
-                System.out.println("No level Assigned");
-            }
-            if (entites.get(i).getLevel() == this) {
-                entites.get(i).render(screen);
-                System.out.print("Rendering...");
-            }
+            entites.get(i).render(screen);
+
         }
-        for (int i = 0; i < projectiles.size(); i++) {
+        for (int i = 0;
+                i < projectiles.size();
+                i++) {
             projectiles.get(i).render(screen);
         }
     }

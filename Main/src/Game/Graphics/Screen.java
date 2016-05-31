@@ -49,6 +49,27 @@ public class Screen {
             }
         }
     }
+    
+    public void renderSpriteSheet(int xp, int yp, SpriteSheet sprite) {
+//        xp -= xOffset;
+//        yp -= yOffset;
+        for (int y = 0; y < sprite.HEIGHT; y++) {
+            int ya = y + yp;
+            for (int x = 0; x < sprite.WIDTH; x++) {
+                int xa = x + xp;
+                if (xa >= width || ya < 0 || ya >= height) {
+                    break;
+                }
+                if (xa < 0) {
+                    xa = 0;
+                }
+                int col = sprite.pixels[x + y * sprite.WIDTH];
+                if (col != 0xffff00ff) {
+                    pixels[xa + ya * width] = col;
+                }
+            }
+        }
+    }
 
     public void renderPixel(int x, int y, int color) {
         pixels[x + y * width] = color;

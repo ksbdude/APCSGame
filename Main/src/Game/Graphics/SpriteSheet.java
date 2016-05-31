@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 public class SpriteSheet {
 
     private final String path;
-    public final int SIZE;
+    public final int WIDTH, HEIGHT;
     public int[] pixels;
 
     public static SpriteSheet tiles = new SpriteSheet("/textures/Grass1.png", 16);
@@ -20,13 +20,24 @@ public class SpriteSheet {
     
     public static SpriteSheet sprites = new SpriteSheet("/textures/spritesheet.png", 256);
     
+    public static SpriteSheet mainmenu = new SpriteSheet("/textures/mainmenu.png", 300, 168);
+    
    // public static SpriteSheet sprites = new SpriteSheet("/textures/spritesheet.png", 32);
     
 
     public SpriteSheet(String path, int size) {
         this.path = path;
-        SIZE = size;
-        pixels = new int[SIZE * SIZE];
+        WIDTH = size;
+        HEIGHT = size;
+        pixels = new int[size * size];
+        load();
+    }
+    
+    public SpriteSheet(String path, int w, int h) {
+        this.path = path;
+        WIDTH = w;
+        HEIGHT = h;
+        pixels = new int[w * h];
         load();
     }
 

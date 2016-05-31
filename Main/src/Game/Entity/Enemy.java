@@ -37,13 +37,20 @@ public class Enemy extends Mob {
             xa = 0;
             ya = 0;
         }
-
-        if(!level.getTile(x + xa, y).solid()){
-            x += xa;
+        
+        x += xa;
+        y += ya;
+        
+        if (Math.abs(x - targetx) < 10 && Math.abs(y - targety) < 10) {
+            Game.Game.player.health--;
         }
-        if(!level.getTile(x, y + ya).solid()){
-            y += ya;
-        }
+        
+//        if(!level.getTile(x + xa, y).solid()){
+//            x += xa;
+//        }
+//        if(!level.getTile(x, y + ya).solid()){
+//            y += ya;
+//        }
     }
 
     @Override

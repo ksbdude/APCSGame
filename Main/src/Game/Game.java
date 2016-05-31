@@ -2,6 +2,7 @@ package Game;
 
 import Game.Entity.Player;
 import Game.Graphics.Screen;
+import Game.Graphics.SpriteSheet;
 import Game.Levels.GenLevel;
 import Game.Levels.Level;
 import java.awt.Canvas;
@@ -27,6 +28,8 @@ public class Game extends Canvas implements Runnable {
     public static Player player;
 
     public static String title = "Game";
+
+    public static boolean inGame = false;
 
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
@@ -93,8 +96,10 @@ public class Game extends Canvas implements Runnable {
 
     public void update() {
 //        key.update();
-        player.update();
-        level.update();
+        if (inGame) {
+            player.update();
+            level.update();
+        }
     }
 
     public void render() {
@@ -105,8 +110,13 @@ public class Game extends Canvas implements Runnable {
         }
 
         screen.clear();
-        level.render(player.x, player.y, screen);
-        player.render(screen);
+
+        if (inGame) {
+            level.render(player.x, player.y, screen);
+            player.render(screen);
+        } else {
+            screen.renderSpriteSheet(0, 0, SpriteSheet.mainmenu);
+        }
 
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = screen.pixels[i];
