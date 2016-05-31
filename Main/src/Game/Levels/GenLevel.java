@@ -32,6 +32,10 @@ public class GenLevel extends Level {
                     if (random > 4) {
                         random = 1;
                     }
+                    if (type == 1 && (random == 1 || random == 2)) {
+                        random = 3;
+                    }
+
                     tiles[x][y] = random;
                 }
             }

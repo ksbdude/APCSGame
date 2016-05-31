@@ -11,7 +11,7 @@ import java.util.List;
 public class Level {
 
     public static Level spawn = new GenLevel(64, 64);
-    public static Level level2 = new GenLevel(64, 64);
+    public static Level level2 = new GenLevel(64, 64, 1);
 
     protected int width, height;
     protected int[][] tiles;
