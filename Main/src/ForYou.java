@@ -19,7 +19,7 @@ public class ForYou
         }
         System.out.println();
         
-        //actually generates
+        //actually generates room structures
         ha.fillrooms();
         haha=ha.getmap();
         for(x=0;x<haha.length;x++)
@@ -31,5 +31,13 @@ public class ForYou
             }
         }
         
+        //implements RoomStructure class
+        for(x=0;x<haha.length;x++)
+        {
+            for(y=0;y<haha[0].length;y++)
+            {
+                //will add later
+            }
+        }
     }
 }
