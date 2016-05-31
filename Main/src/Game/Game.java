@@ -20,10 +20,10 @@ public class Game extends Canvas implements Runnable {
     public static int scale = 4;
 
     private Thread thread;
-    private JFrame frame;
-    private Keyboard key;
+    private final JFrame frame;
+    private final Keyboard key;
     private boolean running = false;
-    private Screen screen;
+    private final Screen screen;
     public static Level level;
     public static Player player;
 

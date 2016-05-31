@@ -17,7 +17,6 @@ public class Player extends Mob {
     int health = 100;
 
     public Player(Keyboard input, Level l) {
-        super(l);
         this.input = input;
         sprite = Sprite.playerF;
         dir = Direction.DOWN;
@@ -63,10 +62,9 @@ public class Player extends Mob {
         for (int c = 0; c < 4; c++) {
             int xt = ((x + xa + Game.width / 2) + c % 2 * 21 - 10) / 16;
             int yt = ((y + ya + Game.height / 2) + c / 2 * 16 - 1) / 16;
-            if (level.getTile(xt, yt) instanceof DoorTile) {
+            if (Game.level.getTile(xt, yt) instanceof DoorTile) {
                 System.out.println("DOOR");
-                level = level.getTile(xt, yt).getLevel();
-                Game.level = level;
+                Game.level = Game.level.getTile(xt, yt).getLevel();
                 x = 5;
                 y = 5;
             }
@@ -80,10 +78,10 @@ public class Player extends Mob {
     }
 
     private void clear() {
-        for (int i = 0; i < level.getProjectiles().size(); i++) {
-            Projectile p = level.getProjectiles().get(i);
+        for (int i = 0; i < Game.level.getProjectiles().size(); i++) {
+            Projectile p = Game.level.getProjectiles().get(i);
             if (p.isRemoved()) {
-                level.getProjectiles().remove(i);
+                Game.level.getProjectiles().remove(i);
             }
         }
     }

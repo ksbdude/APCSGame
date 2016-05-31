@@ -6,8 +6,16 @@ import Game.Levels.Level;
 
 public class Enemy extends Mob {
 
-    public Enemy(int x, int y, Level level) {
-        super(level);
+    private int range = 75;
+    private int speed = 1;
+
+    public Enemy(int x, int y, Level level, int range, int speed){
+        this(x, y);
+        this.range = range;
+        this.speed = speed;
+    }
+    
+    public Enemy(int x, int y) {
         this.x = x;
         this.y = y;
         sprite = Sprite.playerF;
@@ -19,38 +27,31 @@ public class Enemy extends Mob {
         int targety = Game.Game.player.y;
         int xa = 0, ya = 0;
         if (targetx < x) {
-            xa = -1;
+            xa = -speed;
         } else if (targetx > x) {
-            xa = 1;
+            xa = speed;
         } else {
             xa = 0;
         }
         if (targety < y) {
-            ya = -1;
+            ya = -speed;
         } else if (targety > y) {
-            ya = 1;
+            ya = speed;
         } else {
             ya = 0;
         }
 
-        if (Math.abs(x - targetx) > 75 && Math.abs(y - targety) > 75) {
+        if (Math.abs(x - targetx) > range && Math.abs(y - targety) > range) {
             xa = 0;
             ya = 0;
         }
-        
+
         x += xa;
         y += ya;
-        
+
         if (Math.abs(x - targetx) < 10 && Math.abs(y - targety) < 10) {
             Game.Game.player.health--;
         }
-        
-//        if(!level.getTile(x + xa, y).solid()){
-//            x += xa;
-//        }
-//        if(!level.getTile(x, y + ya).solid()){
-//            y += ya;
-//        }
     }
 
     @Override

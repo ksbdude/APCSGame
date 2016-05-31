@@ -38,8 +38,8 @@ public class GenLevel extends Level {
         }
         placestructure(Structure.dungeon);
         placestructure(Structure.dungeon);
-        add(new Enemy(200, 200, Level.spawn));
-        add(new Enemy(600, 600, Level.spawn));
+        add(new Enemy(200, 200));
+        add(new Enemy(600, 600));
     }
 
     @Override
