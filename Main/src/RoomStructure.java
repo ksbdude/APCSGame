@@ -1,6 +1,33 @@
 public class RoomStructure
 {
     private int[][] layout;
+    
+    public RoomStructure(int x, int y) {
+        layout = new int[x][y];
+    }
+    
+    public int[][] getmapp()
+    {
+        return layout;
+    }
+    
+    public void setmapp(int[][] temp)
+    {
+        layout=temp;
+    }
+    
+    public int[][] GenStruc(int[][] lay)
+    {
+        for(int x=0;x<layout.length;x++)
+        {
+            for(int y=0;y<layout[0].length;y++)
+            {
+                lay[x][y]= getvariation(lay[x][y]);
+            }
+        }
+        return layout;
+    }
+    
     //16x16 tiles per room
     public int getvariation(int min)
     {
