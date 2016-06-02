@@ -7,7 +7,6 @@ import Game.Keyboard;
 import Game.Levels.Level;
 import Game.Mouse;
 import Game.Tile.DoorTile;
-import java.awt.Graphics;
 
 public class Player extends Mob {
 
@@ -75,6 +74,10 @@ public class Player extends Mob {
             fireRate--;
         }
         updateShooting();
+        
+        if(health == 0){
+            System.out.println("Died");
+        }
     }
 
     private void clear() {
