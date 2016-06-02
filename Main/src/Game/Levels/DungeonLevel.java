@@ -24,7 +24,7 @@ public class DungeonLevel extends Level {
 
                     for (int xa = 0; xa < 24; xa++) {
                         for (int ya = 0; ya < 24; ya++) {
-                            tiles[xa + 24 * width][ya + 24 * height] = DungeonRoom.room1.getTile(xa, ya);
+                            tiles[xa + 24 * width][ya + 24 * height] = DungeonRoom.r1.getTile(xa, ya);
                         }
                     }
 

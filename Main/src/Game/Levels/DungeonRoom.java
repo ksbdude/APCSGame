@@ -7,7 +7,20 @@ import javax.imageio.ImageIO;
 
 public class DungeonRoom {
 
-    public static DungeonRoom room1 = new DungeonRoom("");
+    public static DungeonRoom r0 = new DungeonRoom("/DungeonRooms/R0.png");
+    public static DungeonRoom r1 = new DungeonRoom("/Dungeons/R001.png");
+    public static DungeonRoom r11 = new DungeonRoom("/Dungeons/R011.png");
+    public static DungeonRoom r21 = new DungeonRoom("/Dungeons/R021.png");
+    public static DungeonRoom r31 = new DungeonRoom("/Dungeons/R031.png");
+    public static DungeonRoom r41 = new DungeonRoom("/Dungeons/R041.png");
+    public static DungeonRoom r51 = new DungeonRoom("/Dungeons/R051.png");
+    public static DungeonRoom r61 = new DungeonRoom("/Dungeons/R061.png");
+    public static DungeonRoom r71 = new DungeonRoom("/Dungeons/R071.png");
+    public static DungeonRoom r81 = new DungeonRoom("/Dungeons/R081.png");
+    public static DungeonRoom r91 = new DungeonRoom("/Dungeons/R091.png");
+    public static DungeonRoom r101 = new DungeonRoom("/Dungeons/R101.png");
+    
+    
 
     int w, h;
     String path;
