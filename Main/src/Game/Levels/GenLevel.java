@@ -54,7 +54,7 @@ public class GenLevel extends Level {
         if (type == 0) {
             System.out.println(0);
             placestructure(Structure.dungeon);
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 100; i++) {
                 add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
             }
         } else if (type == 1) {
