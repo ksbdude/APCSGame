@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Game.Entity;
 
 import Game.Game;
 import Game.Graphics.Screen;
 import Game.Graphics.Sprite;
-import Game.Levels.Level;
 
 /**
  *
@@ -52,6 +46,15 @@ public class Projectile extends Entity {
     public void update() {
         if (Game.level.tilecollision((int) (x + nx), (int) (y + ny), 7, 5, 4)) {
             remove();
+        }
+
+        for (int i = 0; i < Game.level.getEntites().size(); i++) {
+            if (Math.abs(Game.level.getEntites().get(i).x - x) < 15) {
+                if (Math.abs(Game.level.getEntites().get(i).y - y) < 15) {
+                    Game.level.getEntites().get(i).remove();
+                    remove();
+                }
+            }
         }
         move();
     }

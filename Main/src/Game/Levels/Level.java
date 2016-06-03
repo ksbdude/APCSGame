@@ -13,7 +13,7 @@ public class Level {
     public static Level spawn = new GenLevel(64, 64);
     public static Level level2 = new GenLevel(64, 64, 1);
 
-    public static Level dungeon = new DungeonLevel(2, 2);
+    //public static Level dungeon = new DungeonLevel(2, 2);
 
     protected int width, height;
     protected int[][] tiles;
@@ -23,6 +23,10 @@ public class Level {
 
     public List<Projectile> getProjectiles() {
         return projectiles;
+    }
+    
+    public List<Entity> getEntites() {
+        return entites;
     }
 
     public Level(int width, int height) {
