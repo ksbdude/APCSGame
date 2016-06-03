@@ -3,18 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Graphics/SpriteSheet.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Entity/Projectile.java</file>
             <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Levels/Level.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Graphics/Screen.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Entity/Player.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Entity/Mob.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Game.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Entity/Entity.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Mouse.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Entity/Enemy.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Levels/GenLevel.java</file>
-            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Graphics/Sprite.java</file>
+            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Tile/Tile.java</file>
+            <file>file:/Users/kevinburns/Desktop/APCSGame/Main/src/Game/Levels/DungeonLevel.java</file>
         </group>
     </open-files>
 </project-private>
