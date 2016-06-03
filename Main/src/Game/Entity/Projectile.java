@@ -25,7 +25,7 @@ public class Projectile extends Entity {
         return sprite.SIZE;
     }
 
-    public static final int FIRE_RATE = 10;
+    public static final int FIRE_RATE = 15;
 
     public Projectile(double x, double y, double dir) {
         xOrigin = x;

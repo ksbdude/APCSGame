@@ -25,7 +25,6 @@ public class Player extends Mob {
         this(input, l);
         this.x = x;
         this.y = y;
-        //fireRate = MagicProjectile.FIRE_RATE;
     }
 
     private int speed = 2;
