@@ -43,7 +43,7 @@ public class Game extends Canvas implements Runnable {
         key = new Keyboard();
 //        level = new GenLevel(64, 64);
         level = Level.spawn;
-        player = new Player(100, 100, key, level);
+        player = new Player(250 >> 4, 250 >> 4, key, level);
         addKeyListener(key);
         Mouse mouse = new Mouse();
         addMouseListener(mouse);
