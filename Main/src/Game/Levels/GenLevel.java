@@ -42,8 +42,18 @@ public class GenLevel extends Level {
         }
         if (type == 0) {
             placestructure(Structure.dungeon);
-            add(new Enemy(200, 200));
-            add(new Enemy(600, 600));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
+            add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
         } else {
             add(new Enemy(200, 200));
             add(new Enemy(600, 600));
