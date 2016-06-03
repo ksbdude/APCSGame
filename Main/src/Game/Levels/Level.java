@@ -40,6 +40,10 @@ public class Level {
         loadLevel(path);
         generateLevel();
     }
+    
+    public void reset(){
+        generateLevel();
+    }
 
     protected void generateLevel() {
 

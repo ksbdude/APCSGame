@@ -20,7 +20,7 @@ public class Game extends Canvas implements Runnable {
 
     private Thread thread;
     private final JFrame frame;
-    private final Keyboard key;
+    private static Keyboard key;
     private boolean running = false;
     private final Screen screen;
     public static Level level;
@@ -40,12 +40,20 @@ public class Game extends Canvas implements Runnable {
         frame = new JFrame();
         key = new Keyboard();
 //        level = new GenLevel(64, 64);
-        level = Level.spawn;
-        player = new Player(12, 12, key, level);
+//        level = Level.spawn;
+//        player = new Player(12, 12, key, level);
+        reset();
         addKeyListener(key);
         Mouse mouse = new Mouse();
         addMouseListener(mouse);
         addMouseMotionListener(mouse);
+    }
+    
+    public static void reset(){
+        Level.spawn.reset();
+        Level.level2.reset();
+        level = Level.spawn;
+        player = new Player(12, 12, key, level);
     }
 
     public synchronized void start() {

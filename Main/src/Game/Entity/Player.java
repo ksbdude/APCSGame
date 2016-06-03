@@ -77,6 +77,8 @@ public class Player extends Mob {
         
         if(health == 0){
             System.out.println("Died");
+            Game.inGame = false;
+            Game.reset();
         }
     }
 
