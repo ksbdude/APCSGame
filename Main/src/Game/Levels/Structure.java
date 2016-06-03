@@ -11,11 +11,11 @@ public class Structure {
     //FOR DUNGEON USE ONLY---------------------------------------------------------------
 //    public static Structure r0 = new Structure("/Dungeons/R0.png", 24);
 //    //
-//    public static Structure r1 = new Structure("/Dungeons/R001.png", 24);
-//    public static Structure r2 = new Structure("/Dungeons/R002.png", 24);
-//    public static Structure r3 = new Structure("/Dungeons/R003.png", 24);
-//    public static Structure r4 = new Structure("/Dungeons/R004.png", 24);
-//    public static Structure r5 = new Structure("/Dungeons/R005.png", 24);
+    public static Structure r1 = new Structure("/Dungeons/R001.png", 24);
+    public static Structure r2 = new Structure("/Dungeons/R002.png", 24);
+    public static Structure r3 = new Structure("/Dungeons/R003.png", 24);
+    public static Structure r4 = new Structure("/Dungeons/R004.png", 24);
+    public static Structure r5 = new Structure("/Dungeons/R005.png", 24);
 //    public static Structure r6 = new Structure("/Dungeons/R006.png", 24);
 //    public static Structure r7 = new Structure("/Dungeons/R007.png", 24);
 //    public static Structure r8 = new Structure("/Dungeons/R008.png", 24);
@@ -46,11 +46,11 @@ public class Structure {
 //    //
 //    public static Structure r31 = new Structure("/Dungeons/R031.png");
 //    public static Structure r32 = new Structure("/Dungeons/R032.png");
-//    public static Structure r33 = new Structure("/Dungeons/R033.png");
-//    public static Structure r34 = new Structure("/Dungeons/R034.png");
-//    public static Structure r35 = new Structure("/Dungeons/R035.png");
-//    public static Structure r36 = new Structure("/Dungeons/R036.png");
-//    public static Structure r37 = new Structure("/Dungeons/R037.png");
+    public static Structure r33 = new Structure("/Dungeons/R033.png");
+    public static Structure r34 = new Structure("/Dungeons/R034.png");
+    public static Structure r35 = new Structure("/Dungeons/R035.png");
+    public static Structure r36 = new Structure("/Dungeons/R036.png");
+    public static Structure r37 = new Structure("/Dungeons/R037.png");
 //    public static Structure r38 = new Structure("/Dungeons/R038.png");
 //    public static Structure r39 = new Structure("/Dungeons/R039.png");
 //    public static Structure r40 = new Structure("/Dungeons/R040.png");
@@ -90,8 +90,8 @@ public class Structure {
 //    //
 //    public static Structure r71 = new Structure("/Dungeons/R071.png");
 //    public static Structure r72 = new Structure("/Dungeons/R072.png");
-//    public static Structure r73 = new Structure("/Dungeons/R073.png");
-//    public static Structure r74 = new Structure("/Dungeons/R074.png");
+    public static Structure r73 = new Structure("/Dungeons/R073.png");
+    public static Structure r74 = new Structure("/Dungeons/R074.png");
 //    public static Structure r75 = new Structure("/Dungeons/R075.png");
 //    public static Structure r76 = new Structure("/Dungeons/R076.png");
 //    public static Structure r77 = new Structure("/Dungeons/R077.png");
@@ -143,10 +143,10 @@ public class Structure {
 //    public static Structure r119 = new Structure("/Dungeons/R119.png");
 //    public static Structure r120 = new Structure("/Dungeons/R120.png");
 //    //
-//    public static Structure r121 = new Structure("/Dungeons/R121.png", 24);
-//    public static Structure r122 = new Structure("/Dungeons/R122.png", 24);
-//    public static Structure r123 = new Structure("/Dungeons/R123.png", 24);
-//    public static Structure r124 = new Structure("/Dungeons/R124.png", 24);
+    public static Structure r121 = new Structure("/Dungeons/R121.png", 24);
+    public static Structure r122 = new Structure("/Dungeons/R122.png", 24);
+    public static Structure r123 = new Structure("/Dungeons/R123.png", 24);
+    public static Structure r124 = new Structure("/Dungeons/R124.png", 24);
 //    public static Structure r125 = new Structure("/Dungeons/R125.png", 24);
 //    public static Structure r126 = new Structure("/Dungeons/R126.png", 24);
 //    public static Structure r127 = new Structure("/Dungeons/R127.png", 24);

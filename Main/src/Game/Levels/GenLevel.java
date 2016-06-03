@@ -10,8 +10,8 @@ public class GenLevel extends Level {
     private int type; //0 = grass, 1 = sand, 2 = dungeon
 
     //DUNGEON ONLY-------------------
-    RoomGen rooms = new RoomGen(3, 3);
-    int[][] map = new int[3][3];
+//    RoomGen rooms = new RoomGen(3, 3);
+//    int[][] map = new int[3][3];
     //-------------------------------
 
     public GenLevel(int width, int height, int type) {
@@ -20,13 +20,13 @@ public class GenLevel extends Level {
 
         //--------------------------------------------------
         //DUNGEON ONLY (print out "layout" of dungeons)-----
-        map = rooms.getmap();
-        for (int f = 0; f < map.length; f++) {
-            for (int k = 0; k < map[0].length; k++) {
-                System.out.print(map[f][k] + "\t");
-            }
-            System.out.println();
-        }
+//        map = rooms.getmap();
+//        for (int f = 0; f < map.length; f++) {
+//            for (int k = 0; k < map[0].length; k++) {
+//                System.out.print(map[f][k] + "\t");
+//            }
+//            System.out.println();
+//        }
         //--------------------------------------------------
     }
 
@@ -53,6 +53,10 @@ public class GenLevel extends Level {
         }
         if (type == 0) {
             System.out.println(0);
+            placestructure(Structure.r73, 50, 60);
+            placestructure(Structure.r121, 0, 0);
+            placestructure(Structure.r123, 70, 0);
+            placestructure(Structure.r124);
             placestructure(Structure.dungeon);
             for (int i = 0; i < 100; i++) {
                 add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
