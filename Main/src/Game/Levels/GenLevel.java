@@ -70,6 +70,7 @@ public class GenLevel extends Level {
             }
         }
         if (type == 0) {
+            System.out.println(0);
             placestructure(Structure.dungeon);
             add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
             add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
@@ -84,10 +85,12 @@ public class GenLevel extends Level {
             add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
             add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
         } else if (type == 1) {
+            System.out.println(1);
             placestructure(Structure.dungeon);
             add(new Enemy(200, 200));
             add(new Enemy(600, 600));
-        } else if (type == 2) {
+        } else {
+            System.out.println(2);
             for (int r = 0; r < map.length; r++)
             {
                 for (int c = 0; c < map[0].length; c++)
@@ -396,9 +399,6 @@ public class GenLevel extends Level {
                         placestructure(Structure.r121, r*24, c*24);
                 }
             }
-        } else {
-            add(new Enemy(200, 200));
-            add(new Enemy(600, 600));
         }
     }
 

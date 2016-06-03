@@ -63,7 +63,12 @@ public class Player extends Mob {
             int yt = ((y + ya + Game.height / 2) + c / 2 * 16 - 1) / 16;
             if (Game.level.getTile(xt, yt) instanceof DoorTile) {
                 System.out.println("DOOR");
-                Game.level = Game.level.getTile(xt, yt).getLevel();
+                if(Game.level == Level.spawn){
+                    Game.level = Level.level2;
+                } else if(Game.level == Level.level2){
+                    Game.level = Level.level3;
+                }
+                //Game.level = Game.level.getTile(xt, yt).getLevel();
                 x = 100;
                 y = 100;
             }
