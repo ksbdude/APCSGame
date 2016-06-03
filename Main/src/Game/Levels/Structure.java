@@ -53,7 +53,7 @@ public class Structure {
     public static Structure r37 = new Structure("/Dungeons/R037.png");
 //    public static Structure r38 = new Structure("/Dungeons/R038.png");
 //    public static Structure r39 = new Structure("/Dungeons/R039.png");
-//    public static Structure r40 = new Structure("/Dungeons/R040.png");
+    public static Structure r40 = new Structure("/Dungeons/R040.png");
 //    //
 //    public static Structure r41 = new Structure("/Dungeons/R041.png");
 //    public static Structure r42 = new Structure("/Dungeons/R042.png");

@@ -55,6 +55,7 @@ public class GenLevel extends Level {
             System.out.println(0);
             placestructure(Structure.r73, 50, 60);
             placestructure(Structure.r121, 0, 0);
+            placestructure(Structure.r40, 70, 70);
             placestructure(Structure.r123, 70, 0);
             placestructure(Structure.r124);
             placestructure(Structure.dungeon);
