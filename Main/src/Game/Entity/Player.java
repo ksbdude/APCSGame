@@ -69,8 +69,8 @@ public class Player extends Mob {
                     Game.level = Level.level3;
                 }
                 //Game.level = Game.level.getTile(xt, yt).getLevel();
-                x = 100;
-                y = 100;
+//                x = 100;
+//                y = 100;
             }
         }
 

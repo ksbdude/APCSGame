@@ -52,7 +52,7 @@ public class Game extends Canvas implements Runnable {
         Level.spawn.reset();
         Level.level2.reset();
         level = Level.spawn;
-        player = new Player(100, 100, key, level);
+        player = new Player(250 >> 4, 250 >> 4, key, level);
     }
 
     public synchronized void start() {
