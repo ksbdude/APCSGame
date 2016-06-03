@@ -40,9 +40,14 @@ public class GenLevel extends Level {
                 }
             }
         }
-        placestructure(Structure.dungeon);
-        add(new Enemy(200, 200));
-        add(new Enemy(600, 600));
+        if (type == 0) {
+            placestructure(Structure.dungeon);
+            add(new Enemy(200, 200));
+            add(new Enemy(600, 600));
+        } else {
+            add(new Enemy(200, 200));
+            add(new Enemy(600, 600));
+        }
     }
 
     public void placestructure(Structure a) {
