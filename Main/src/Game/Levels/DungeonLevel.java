@@ -91,7 +91,6 @@ public class DungeonLevel extends Level {
     }
     
     //this method does similarly to generatelevel but there's some bugs in it (indexoutofbounds)
-    @Override
     public void placetiles()
     {
         for (int i = 0; i < map.length; i++)
