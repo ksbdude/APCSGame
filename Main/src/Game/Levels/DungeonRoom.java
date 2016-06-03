@@ -8,9 +8,9 @@ import javax.imageio.ImageIO;
 
 public class DungeonRoom {
 
-    ArrayList<DungeonRoom> rooms = new ArrayList<>();
+    public static ArrayList<DungeonRoom> rooms = new ArrayList<>();
 
-//public static DungeonRoom r0 = new DungeonRoom("/Dungeons/R0.png");
+    //public static DungeonRoom r0 = new DungeonRoom("/Dungeons/R0.png");
     //
     public static DungeonRoom r1 = new DungeonRoom("/Dungeons/R001.png");
     public static DungeonRoom r2 = new DungeonRoom("/Dungeons/R002.png");
