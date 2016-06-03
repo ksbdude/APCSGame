@@ -3,7 +3,6 @@ package Game;
 import Game.Entity.Player;
 import Game.Graphics.Screen;
 import Game.Graphics.SpriteSheet;
-import Game.Levels.GenLevel;
 import Game.Levels.Level;
 import java.awt.Canvas;
 import java.awt.Color;

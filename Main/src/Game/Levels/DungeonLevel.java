@@ -2,7 +2,7 @@ package Game.Levels;
 
 public class DungeonLevel extends Level {
 
-    RoomGen rooms = new RoomGen(2, 2);
+    RoomGen rooms = new RoomGen(3, 3);
 
     int w, h;
 
@@ -24,7 +24,8 @@ public class DungeonLevel extends Level {
         //gets tile for each room
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-
+                System.out.println(x + " " + y);
+                
                 int ypos = y % 24;
                 int xpos = x % 24;
 

@@ -98,10 +98,10 @@ public class GenLevel extends Level {
                 } else {
                     tiles[upperleftcornerX + i][upperleftcornerY + j] = 1;
                 }
-                System.out.print(tiles[upperleftcornerX + i][upperleftcornerY + j] + "\t");
+                //System.out.print(tiles[upperleftcornerX + i][upperleftcornerY + j] + "\t");
                 //tiles[upperleftcornerX + i][upperleftcornerY + j] = build[i][j];
             }
-            System.out.println();
+            //System.out.println();
         }
     }
 
