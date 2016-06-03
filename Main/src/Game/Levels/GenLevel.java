@@ -59,7 +59,7 @@ public class GenLevel extends Level {
             placestructure(Structure.r123, 70, 0);
             placestructure(Structure.r124);
             placestructure(Structure.dungeon);
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 150; i++) {
                 add(new Enemy((int) (Math.random() * 3000) + 100, (int) (Math.random() * 3000) + 100));
             }
         } else if (type == 1) {
