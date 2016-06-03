@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 public class DungeonRoom {
-    //public static DungeonRoom r0 = new DungeonRoom("/Dungeons/R0.png");
+    public static DungeonRoom r0 = new DungeonRoom("/Dungeons/R0.png");
     //
     public static DungeonRoom r1 = new DungeonRoom("/Dungeons/R001.png");
     public static DungeonRoom r2 = new DungeonRoom("/Dungeons/R002.png");
