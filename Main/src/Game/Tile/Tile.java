@@ -17,10 +17,10 @@ public class Tile {
 
     public static Tile voidTile = new VoidTile(16, 0xFF0000ff);
     
-    public static Tile door1 = new DoorTile(Sprite.door1, Level.level2);
-    public static Tile door2 = new DoorTile(Sprite.door2, Level.level2);
-    public static Tile door3 = new DoorTile(Sprite.door3, Level.level2);
-    public static Tile door4 = new DoorTile(Sprite.door4, Level.level2);
+    public static Tile door1 = new DoorTile(Sprite.door1);
+    public static Tile door2 = new DoorTile(Sprite.door2);
+    public static Tile door3 = new DoorTile(Sprite.door3);
+    public static Tile door4 = new DoorTile(Sprite.door4);
     
 
     public Tile(Sprite sprite) {
@@ -40,6 +40,9 @@ public class Tile {
     }
     
     public Level getLevel() {
-        return null;
+        if(Game.Game.level == Level.spawn){
+            return Level.level2;
+        }
+        return Level.level3;
     }
 }

@@ -12,6 +12,7 @@ public class Level {
 
     public static Level spawn = new GenLevel(100, 100);
     public static Level level2 = new GenLevel(100, 100, 1);
+    public static Level level3 = new GenLevel(100, 100, 2);
 
     //public static Level dungeon = new DungeonLevel(2, 2);
 
