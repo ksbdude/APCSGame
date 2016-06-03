@@ -3,6 +3,7 @@ package Game.Levels;
 public class DungeonLevel extends Level {
 
     RoomGen rooms = new RoomGen(3, 3);
+    private int[][] map = new int[3][3];
 
     int w, h;
 
@@ -10,6 +11,8 @@ public class DungeonLevel extends Level {
         super(width * 24, height * 24);
         w = width;
         h = height;
+        map = rooms.getmap();
+        generateLevel();
     }
 
     @Override
@@ -83,6 +86,27 @@ public class DungeonLevel extends Level {
                 if (x == 0 || y == 0) {
                     tiles[x][y] = 5;
                 }
+            }
+        }
+    }
+    
+    //this method does similarly to generatelevel but there's some bugs in it (indexoutofbounds)
+    @Override
+    public void placetiles()
+    {
+        for (int i = 0; i < map.length; i++)
+        {
+            for (int c = 0; c < map[0].length; c++)
+            {
+                
+                for (int a = 0; a < 24; a++)    //24 is size of each room
+                {
+                    for (int b = 0; b < 24; b++)
+                    {
+                        tiles[24*i + a][24*c + b] = DungeonRoom.r121.getTile(a, b);
+                    }
+                }
+                
             }
         }
     }
