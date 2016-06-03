@@ -28,13 +28,17 @@ public class DungeonLevel extends Level {
         //gets tile for each room
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
+                
                 int ypos = y % 24;
                 int xpos = x % 24;
                 int r = rooms[x / 24][y / 24];
                 if (r == 0) {
-                    tiles[x][y] = DungeonRoom.r1.getTile(ypos, xpos);
+                    tiles[x][y] = DungeonRoom.r121.getTile(ypos, xpos);
                 } else {
-                    tiles[x][y] = DungeonRoom.r11.getTile(ypos, xpos);
+                    tiles[x][y] = DungeonRoom.r121.getTile(ypos, xpos);
+                }
+                if(x == 0 || y == 0){
+                    tiles[x][y] = 5;
                 }
             }
         }
